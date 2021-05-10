@@ -1,0 +1,18 @@
+{
+  "name": "jzcarpentryvt",
+  "version": "1.0.0",
+  "description": "JZ Carpentry",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "author": "David Abell",
+  "license": "ISC",
+  "dependencies": {
+    "wicg-inert": "^3.1.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  }
+}
