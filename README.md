@@ -6,6 +6,6 @@ Website source files
 - First commit
 npm integration, parcel package management, wicg-inert
 
-- name test
+- testing gallery modules
 
 
