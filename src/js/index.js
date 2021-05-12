@@ -181,12 +181,11 @@ function clearNav () {
   removeInertStyle();
 }
 
-
-// /////////////////////////////////////////
+////////////////////////////////////////////
 // ///////////Gallery controls//////////////
 // /////////////////////////////////////////
 
-(function () {
+;(function () {
   let imageLinks = document.querySelectorAll ('#test-gallery img')
   imageLinks.forEach(item => {
     item.addEventListener('click', function(e) {
@@ -194,8 +193,8 @@ function clearNav () {
       BigPicture ({
         el:e.target,
         gallery: 'test-gallery',
+        galleryAttribute: 'src',
       })
     })
   })
-})
-
+})()
