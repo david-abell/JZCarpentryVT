@@ -181,3 +181,21 @@ function clearNav () {
   removeInertStyle();
 }
 
+
+// /////////////////////////////////////////
+// ///////////Gallery controls//////////////
+// /////////////////////////////////////////
+
+(function () {
+  let imageLinks = document.querySelectorAll ('#test-gallery img')
+  imageLinks.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault()
+      BigPicture ({
+        el:e.target,
+        gallery: 'test-gallery',
+      })
+    })
+  })
+})
+
