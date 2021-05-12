@@ -1,5 +1,6 @@
 import "wicg-inert";
 import BigPicture from 'bigpicture';
+// import images from '../images/gallery/woodwork-nooks/*.jpg';
 
 document.body.classList.add('js');
 
@@ -186,14 +187,18 @@ function clearNav () {
 // /////////////////////////////////////////
 
 ;(function () {
-  let imageLinks = document.querySelectorAll ('#test-gallery img')
-  imageLinks.forEach(item => {
-    item.addEventListener('click', function(e) {
+  const imageLinks = document.querySelectorAll ('#test-gallery .gallery-item')
+  // const file_name = "file-name"
+  // console.log(images)
+
+  imageLinks.forEach(el => {
+    el.addEventListener('click', function(e) {
+      console.log(el)
       e.preventDefault()
       BigPicture ({
         el:e.target,
-        gallery: 'test-gallery',
-        galleryAttribute: 'src',
+        gallery: '#test-gallery',
+        // galleryAttribute: 'src',
       })
     })
   })
