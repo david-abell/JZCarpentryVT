@@ -10,6 +10,7 @@
   "author": "David Abell",
   "license": "ISC",
   "dependencies": {
+    "bigpicture": "^2.5.3",
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import "wicg-inert";
-// import "../../node_modules/wicg-inert/dist/inert.js";
+import BigPicture from 'bigpicture';
 
 document.body.classList.add('js');
 
