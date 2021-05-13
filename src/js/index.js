@@ -198,6 +198,18 @@ function clearNav () {
       BigPicture ({
         el:e.target,
         gallery: '#test-gallery',
+        animationStart: function () {
+          // executed immediately before open animation starts
+          document.documentElement.style.overflowY = 'hidden'
+          document.body.style.overflowY = 'scroll'
+          addInertStyle()
+        },
+        onClose: function () {
+          // executed immediately after close animation finishes
+          document.documentElement.style.overflowY = 'auto'
+          document.body.style.overflowY = 'auto'
+          removeInertStyle()
+        },
         // galleryAttribute: 'src',
       })
     })
