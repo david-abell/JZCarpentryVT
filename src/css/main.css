@@ -419,11 +419,11 @@ a:hover {
 .hero-content {
     position: relative;
     color: var(--c-light);
-    width: 100vw;
+    width: 80vw;
     text-align: center;
     font-family: var(--ff-main-serif);
-    /* font-style: italic; */
-    font-size: clamp(1.6rem, 0.1750rem + 6.3333vw, 3.5rem);
+    font-size: clamp(1.6rem, -0.5750rem + 9.6667vw, 4.5rem);
+    line-height: 1.25;
 }
 
 #hero-logo {
@@ -489,6 +489,7 @@ a:hover {
 .card {
     background-color: var(--c-medium);
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     box-shadow: 5px 5px 10px rgba(112, 137, 97, .4);
     width: 80%;
