@@ -1,5 +1,5 @@
 import "wicg-inert";
-// import "../../node_modules/wicg-inert/dist/inert.js";
+import BigPicture from 'bigpicture';
 
 document.body.classList.add('js');
 
@@ -181,3 +181,31 @@ function clearNav () {
   removeInertStyle();
 }
 
+////////////////////////////////////////////
+// ///////////Gallery controls//////////////
+// /////////////////////////////////////////
+
+;(function () {
+  const imageLinks = document.querySelectorAll ('.gallery .gallery-item')
+  imageLinks.forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault()
+      BigPicture ({
+        el:e.target,
+        gallery: '.gallery',
+        animationStart: function () {
+          // executed immediately before open animation starts
+          document.documentElement.style.overflowY = 'hidden'
+          document.body.style.overflowY = 'scroll'
+          addInertStyle()
+        },
+        onClose: function () {
+          // executed immediately after close animation finishes
+          document.documentElement.style.overflowY = 'auto'
+          document.body.style.overflowY = 'auto'
+          removeInertStyle()
+        },
+      })
+    })
+  })
+})()
