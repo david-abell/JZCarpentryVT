@@ -508,9 +508,9 @@ a:hover {
 
 .card-img {
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: .25em;
     max-width: 350px;
-    box-shadow: 3px 8px 6px rgba(0, 0, 0, .2);
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, .2);
     margin-bottom: 1em;
 }
 
@@ -618,8 +618,6 @@ a:hover {
     padding: 2em;
     border-radius: 1em;
     background-color: var(--c-medium);
-
-
 }
 
 .gallery img {
@@ -627,7 +625,7 @@ a:hover {
     height: 100%;
     object-fit: cover;
     border-radius: .25em;
-
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, .2);
 }
 
 @media (min-width: 480px) {
