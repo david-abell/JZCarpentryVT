@@ -186,15 +186,13 @@ function clearNav () {
 // /////////////////////////////////////////
 
 ;(function () {
-  const imageLinks = document.querySelectorAll ('#test-gallery .gallery-item')
-
+  const imageLinks = document.querySelectorAll ('.gallery .gallery-item')
   imageLinks.forEach(el => {
     el.addEventListener('click', function(e) {
-      console.log(el)
       e.preventDefault()
       BigPicture ({
         el:e.target,
-        gallery: '#test-gallery',
+        gallery: '.gallery',
         animationStart: function () {
           // executed immediately before open animation starts
           document.documentElement.style.overflowY = 'hidden'
@@ -207,7 +205,6 @@ function clearNav () {
           document.body.style.overflowY = 'auto'
           removeInertStyle()
         },
-        // galleryAttribute: 'src',
       })
     })
   })
