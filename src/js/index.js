@@ -1,6 +1,5 @@
 import "wicg-inert";
 import BigPicture from 'bigpicture';
-// import images from '../images/gallery/woodwork-nooks/*.jpg';
 
 document.body.classList.add('js');
 
@@ -188,8 +187,6 @@ function clearNav () {
 
 ;(function () {
   const imageLinks = document.querySelectorAll ('#test-gallery .gallery-item')
-  // const file_name = "file-name"
-  // console.log(images)
 
   imageLinks.forEach(el => {
     el.addEventListener('click', function(e) {
