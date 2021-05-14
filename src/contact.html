@@ -22,7 +22,8 @@
 
     <header class="page-header">
         <nav class="navbar">
-            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-menu">
+            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false"
+                aria-controls="nav-menu">
                 <span class="screen-reader">Navigation</span>
             </button>
             <a class="company-logo" href="./index.html"><img src="./images/logo.svg" alt="JZ Carpentry home page"></a>
@@ -44,45 +45,57 @@
 
         <header class="section-header">
             <h2 class="section-title">Contact us today!</h1>
-            <div class="section-subtitle">great service at a fair price</div>
+                <div class="section-subtitle">great service at a fair price</div>
         </header>
 
         <div class="card-wrapper">
-            <section class="card flow">
+            <section class="card card-contact flow">
                 <!-- <div class="card-side">
                     <img class="card-img" src="https://www.placecage.com/420/420" alt="employee portrait">
                     <h3 class="card-name">Johannes ziegler</h3>
                     <p class="card-position">Founder and president</p>
                 </div> -->
-                <div class="card-main flow">
-                    <form enctype='multipart/form-data' id="contact-form" action="POST" class="contact">
-                        <h3 class="card-name">Contact Details</h3>
-                        <label class="field">Name:
-                            <input type="text" name="submitted-name" id="submitted-name" placeholder="Name">
+                <form enctype='multipart/form-data' id="contact-form" action="POST" class="contact-form">
+                    <h3 class="card-name grid-span">Contact Details</h3>
+                    <label class="grid-left" for="submitted-name" class="field">Name:
+                    </label>
+                    <input class="grid-right form-input" type="text" name="submitted-name" id="submitted-name"
+                        placeholder="Name">
+                    <label for="submitted-email" class="grid-left">Email:
+                    </label>
+                    <input class="grid-right form-input" type="email" name="submitted-email" id="submitted-email"
+                        placeholder="Email">
+                    <label for="submitted-phone" class="grid-left">Phone:
+                    </label>
+                    <input class="grid-right form-input" type="phone" name="submitted-phone" id="submitted-phone"
+                        placeholder="Phone">
+                    <label for="submitted-address" class="grid-left">Address:
+                    </label>
+                    <input class="grid-right form-input" type="address" name="submitted-address" id="submitted-address"
+                        placeholder="Address">
+                    <label for="submitted-timeline" class="grid-left">Project timeline:
+                    </label>
+                    <input class="grid-right form-input" type="text" name="submitted-timeline" id="submitted-timeline"
+                        placeholder="Project timeline">
+                    <label for="submitted-description" class="grid-span card-name">Tell us about your project:
+                    </label>
+                    <textarea class="grid-span form-input" name="submitted-description" id="submitted-description"
+                        spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
+                    <h3 class="card-name grid-span">Upload plans and photos</h3>
+                    <div class="grid-span form-input" id="drop-area">
+                        <p>Upload multiple files with the file dialog or by dragging and dropping onto this
+                            region</p>
+                        <input class="form-input" type="file" id="submitted-files" multiple accept="image/*" onchange="handleFiles(this.files)">
+                        <label class="button" for="submitted-files">Select some files</label>
+                        <!-- <label for="submitted-files" class="grid-left">Select files:
                         </label>
-                        <label class="field">Email:
-                            <input type="email" name="submitted-email" id="submitted-email" placeholder="Email">
-                        </label>
-                        <label class="field">Phone:
-                            <input type="phone" name="submitted-phone" id="submitted-phone" placeholder="Phone">
-                        </label>
-                        <label class="field">Address:
-                            <input type="address" name="submitted-address" id="submitted-address" placeholder="Address">
-                        </label>
-                        <label class="field">
-                            <input type="text" name="submitted-timeline" id="submitted-timeline" placeholder="project timeline">
-                        </label>
-                        <label class="field card-name">Tell us about your project:
-                            <textarea name="submitted-description" id="submitted-description" maxlength="5000" cols="30" rows="10"></textarea>
-                        </label>
-                        <h3 class="card-name">Upload plans and photos</h3>
-                        <label class="field">Select multiple files:
-                            <input type="file" id="files" name="files" multiple>
-                        </label>
+                        <input class="grid-right form-input" type="file" id="submitted-files" name="files" multiple> -->
+                    </div>
+                    <button class="grid-left form-input" type="reset">Reset form</button>
+                    <button class="grid-right form-input" type="submit">Send</button>
 
 
-                    </form>
-                </div>
+                </form>
             </section>
 
         </div>
