@@ -478,7 +478,7 @@ a:hover {
 /*****************card styling******************/
 /***********************************************/
 
-.biographies {
+.card-wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
