@@ -22,7 +22,8 @@
 
     <header class="page-header">
         <nav class="navbar">
-            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-menu">
+            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false"
+                aria-controls="nav-menu">
                 <span class="screen-reader">Navigation</span>
             </button>
             <a class="company-logo" href="./index.html"><img src="./images/logo.svg" alt="JZ Carpentry home page"></a>
@@ -31,7 +32,7 @@
                 <li class="nav-item"><a class="nav-link" href="./bio.html">Our Team</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="#">Our Process</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact-header">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -42,57 +43,63 @@
             </div>
         </div>
 
-        <header class="section-header">
-            <h2 class="section-title">Meet our team</h1>
-            <div class="section-subtitle">With over 30 years dedication and experience.</div>
+        <header id="contact-header" class="section-header">
+            <h2 class="section-title">Contact us today!</h1>
+                <div class="section-subtitle">great service at a fair price</div>
         </header>
 
-        <div class="biographies">
-            <section class="card flow">
-                <div class="card-side">
+        <div class="card-wrapper">
+            <section class="card card-contact flow">
+                <!-- <div class="card-side">
                     <img class="card-img" src="https://www.placecage.com/420/420" alt="employee portrait">
                     <h3 class="card-name">Johannes ziegler</h3>
                     <p class="card-position">Founder and president</p>
-                </div>
-                <div class="card-main flow">
-                    <p class="card-text">Carpentry and construction was a natural career for Johannes. As a boy he
-                        began making fine jewelry, mixed medium sculpture, furniture, and playing with all kinds of hand
-                        and power tools. He now gets to use tools every day and indulge in grown-up toys. From an early
-                        age he helped his Dad, an electrical engineer, run wires for fire, security, access control, and
-                        CCT. He remembers that crawling around in buildings with his Dad was an introduction to building
-                        construction. </p>
-                    <p class="card-text">In high school he worked for a new construction builder on a house in the
-                        Northeast kingdom. Through college he worked as a sculptural metal worker and installer, and
-                        home remodeler for an architectural firm, and also for a furniture building company. After
-                        college, his liberal arts degree was general and artsy, so he leaned into his experience, skill
-                        and love of tools and began home repair work, soon moving on to remodeling. He later trained to
-                        be a real estate home inspector which further expanded his understanding of building
-                        construction.</p>
-                </div>
-            </section>
-            <section class="card">
-                <div class="card-side">
-                    <img class="card-img" src="https://www.placecage.com/420/420" alt="portrait">
-                </div>
-                <div class="card-main flow">
-                    <h3 class="card-name">ben carpenter</h3>
-                    <h4 class="card-position">employee title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum.</p>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus saepe odit quasi.</p>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias nulla doloremque inventore nemo libero.</p>
+                </div> -->
+                <form enctype='multipart/form-data' id="contact-form" action="POST" class="contact-form">
+                    <h3 class="card-name grid-span">Contact Details</h3>
+                    <label class="grid-left" for="submitted-name" class="field">Name:
+                    </label>
+                    <input class="grid-right form-input" type="text" name="submitted-name" id="submitted-name"
+                        placeholder="Name">
+                    <label for="submitted-email" class="grid-left">Email:
+                    </label>
+                    <input class="grid-right form-input" type="email" name="submitted-email" id="submitted-email"
+                        placeholder="Email">
+                    <label for="submitted-phone" class="grid-left">Phone:
+                    </label>
+                    <input class="grid-right form-input" type="phone" name="submitted-phone" id="submitted-phone"
+                        placeholder="Phone">
+                    <label for="submitted-address" class="grid-left">Address:
+                    </label>
+                    <input class="grid-right form-input" type="address" name="submitted-address" id="submitted-address"
+                        placeholder="Address">
+                    <label for="submitted-timeline" class="grid-left">Project timeline:
+                    </label>
+                    <input class="grid-right form-input" type="text" name="submitted-timeline" id="submitted-timeline"
+                        placeholder="Project timeline">
+                    <label for="submitted-budget" class="grid-left">Project budget:
+                    </label>
+                    <input class="grid-right form-input" type="number" name="submitted-budget" id="submitted-budget"
+                        placeholder="Project budget">
+                    <label for="submitted-description" class="card-name grid-span">Tell us about your&nbspproject:
+                    </label>
+                    <textarea class="grid-span form-input" name="submitted-description" id="submitted-description"
+                        spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
+                    <h3 class="card-name grid-span">Upload plans and photos</h3>
+                    <div class="grid-span form-input" id="drop-area">
+                        <p>Upload multiple files with the file dialog or by dragging and dropping onto this
+                            region</p>
+                        <input class="form-input" type="file" id="submitted-files" multiple accept="image/*" onchange="handleFiles(this.files)">
+                        <label class="button" for="submitted-files">Select some files</label>
+                        <!-- <label for="submitted-files" class="grid-left">Select files:
+                        </label>
+                        <input class="grid-right form-input" type="file" id="submitted-files" name="files" multiple> -->
+                    </div>
+                    <button class="grid-left form-input" type="reset">Reset form</button>
+                    <button class="grid-right form-input" type="submit">Send</button>
 
-                </div>
-            </section>
-            <section class="card flow">
-                <div class="card-side">
-                    <img class="card-img" src="https://www.placecage.com/420/420" alt="employee portrait">
-                    <h3 class="card-name">Chris Carpenter</h3>
-                    <p class="card-position">Employee title</p>
-                </div>
-                <div class="card-main flow">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, eaque. Distinctio ipsum similique obcaecati reiciendis autem quos perspiciatis ipsam quia? </p>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum et reiciendis repellat odio consectetur similique illum quasi. Placeat, sapiente quo!</p>
-                </div>
+
+                </form>
             </section>
 
         </div>
@@ -113,7 +120,7 @@
                     </a>
                 </li>
                 <li class="footer-item">
-                    <a href="./contact.html" class="footer-link">
+                    <a href="#contact-header" class="footer-link">
                         <i class="icon fas fa-envelope"></i>Email
                     </a>
                 </li>
@@ -123,12 +130,12 @@
                 <p>Web design by David Abell</p>
             </div>
         </div>
-        <div class="floating-wrapper">
+        <!-- <div class="floating-wrapper">
             <ul class="floating-list">
-                <li class="floating-item"><a href="./portfolio.html" class="floating-link">See our work</a></li>
+                <li class="floating-item"><a href="./portfolio.html" class="floating-link">our work</a></li>
                 <li class="floating-item"><a href="./contact.html" class="floating-link">Contact us</a></li>
             </ul>
-        </div>
+        </div> -->
     </footer>
 
     <script
