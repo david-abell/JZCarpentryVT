@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/545eea5e46.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./css/inert.css" id="inert-style">
     <link rel="stylesheet" href="./css/main.css">
+    <!-- <link rel="stylesheet" href="../node_modules/dropzone/dist/dropzone.css"> -->
 
 </head>
 
@@ -55,7 +56,8 @@
                     <h3 class="card-name">Johannes ziegler</h3>
                     <p class="card-position">Founder and president</p>
                 </div> -->
-                <form enctype='multipart/form-data' id="contact-form" action="POST" class="contact-form">
+                <form enctype='multipart/form-data' id="contact-form" action="/url-to-send-form-data" method="POST"
+                    class="contact-form">
                     <h3 class="card-name grid-span">Contact Details</h3>
                     <label class="grid-left" for="submitted-name" class="field">Name:
                     </label>
@@ -83,26 +85,32 @@
                         placeholder="Project budget">
                     <label for="submitted-description" class="card-name grid-span">Tell us about your&nbspproject:
                     </label>
-                    <textarea class="grid-span form-input" name="submitted-description" id="submitted-description"
+                    <textarea class="grid-span form-input textarea" name="submitted-description" id="submitted-description"
                         spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
                     <h3 class="card-name grid-span">Upload plans and photos</h3>
-                    <div class="grid-span form-input" id="drop-area">
-                        <p>Upload multiple files with the file dialog or by dragging and dropping onto this
-                            region</p>
-                        <input class="form-input" type="file" id="submitted-files" multiple accept="image/*" onchange="handleFiles(this.files)">
-                        <label class="button" for="submitted-files">Select some files</label>
-                        <!-- <label for="submitted-files" class="grid-left">Select files:
-                        </label>
-                        <input class="grid-right form-input" type="file" id="submitted-files" name="files" multiple> -->
+                    <div class="grid-span form-input dropzone" id="drop-area">
+                        <div class="fallback">
+                            <div class="grid-span form-input">
+                                <input class="form-input" type="file" id="submitted-files" multiple">
+                                <label class="button" for="submitted-files">Select files to upload</label>
+                            </div>
+                        </div>
+
+                        <!-- <p id="drop-area-text">Click here to upload files with the file dialog or drag and drop files
+                            onto this
+                            region</p> -->
                     </div>
-                    <button class="grid-left form-input" type="reset">Reset form</button>
-                    <button class="grid-right form-input" type="submit">Send</button>
+                    <div class="grid-span form-input dropzone dropzone-previews" id="dropzone-previews"></div>
+                    <!-- <button class="grid-left form-input" type="reset">Reset form</button> -->
+                    <button class="grid-span form-input" type="submit" id="submit-all">Send</button>
 
 
                 </form>
             </section>
 
         </div>
+        
+        <!-- <form class="dropzone" action="/url-to-send-form-data" id="drop-test"></form> -->
     </main>
     <footer class="footer" id="footer">
         <div class="footer-wrapper">
@@ -143,6 +151,7 @@
     </script>
     <!-- <script src="./js/inert.js"></script> -->
     <script src="./js/index.js"></script>
+
 
 </body>
 
