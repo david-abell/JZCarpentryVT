@@ -1,11 +1,10 @@
 import "wicg-inert";
 import BigPicture from 'bigpicture';
+import Dropzone from "dropzone";
+import "dropzone/dist/dropzone.css";
 
 document.body.classList.add('js');
 
-// //////////////////////////////////////////
-// ///////////////variables//////////////////
-// //////////////////////////////////////////
 
 const main = document.querySelector('#main');
 const footer = document.querySelector('#footer');
@@ -43,13 +42,13 @@ window.addEventListener("scroll", () => {
     body.classList.remove(scrollDown);
     return;
   }
-   
+
   if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
     // down
     body.classList.remove(scrollUp);
     body.classList.add(scrollDown);
     navReset();
-    } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
     // up
     body.classList.remove(scrollDown);
     body.classList.add(scrollUp);
@@ -60,13 +59,13 @@ window.addEventListener("scroll", () => {
 
 
 //set initial inert state for navtoggle
-document.addEventListener("load", navReset () );
+document.addEventListener("load", navReset());
 
 // fade in animation helper
-window.addEventListener('load', addFadeClass () );
+window.addEventListener('load', addFadeClass());
 
 //reset inert state so that nav isn't broken upon window resize
-window.addEventListener('resize', debounce (navReset) );
+window.addEventListener('resize', debounce(navReset));
 
 //log current focused element to track inert functionality
 // document.addEventListener('focusin', function () {
@@ -82,34 +81,34 @@ document.addEventListener("click", function (e) {
   if (pageHeader != e.target &&
     !pageHeader.contains(e.target) &&
     navMenu.classList.contains(active)) {
-      closeNav();
-  } 
+    closeNav();
+  }
 }, false);
 
 //sets footer current date
 window.addEventListener('load', (
   function () {
-      document.getElementById('copyright-year').appendChild(
-          document.createTextNode(
-              new Date().getFullYear()
-          )
-      );
+    document.getElementById('copyright-year').appendChild(
+      document.createTextNode(
+        new Date().getFullYear()
+      )
+    );
   }
 ));
 
 // /////////////////////////////////////////
-// //////////////Functions//////////////////
+// //////Nav and Inert state functions//////
 // /////////////////////////////////////////
 
 
-function addInertStyle () {
+function addInertStyle() {
   const containsInert = document.querySelectorAll("[inert]");
   containsInert.forEach(el => {
     el.classList.add('is-not-active');
   });
 }
 
-function removeInertStyle () {
+function removeInertStyle() {
   const notActive = document.querySelectorAll('.is-not-active');
   notActive.forEach(el => {
     el.classList.remove('is-not-active');
@@ -117,7 +116,7 @@ function removeInertStyle () {
 }
 
 
-function addFadeClass () {
+function addFadeClass() {
   heroContent.classList.add('fade-in');
   pageHeader.classList.add('fade-in');
 
@@ -125,15 +124,15 @@ function addFadeClass () {
 
 // Timer for window onresize event listener so it doesn't continuesly fire during resize events
 // Source: Jonas Wilms, https://stackoverflow.com/questions/45905160/javascript-on-window-resize-end
-function debounce (func) {
+function debounce(func) {
   let timer;
-  return function(event){
-    if(timer) clearTimeout(timer);
-    timer = setTimeout(func,100,event);
+  return function (event) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(func, 100, event);
   };
 }
 
-function menuToggle () {
+function menuToggle() {
   if (navToggleState !== 0) {
     closeNav();
   } else {
@@ -141,13 +140,14 @@ function menuToggle () {
   }
 }
 
-function navReset () {
+function navReset() {
   if (getComputedStyle(navToggle).display === 'block') {
     closeNav();
-  } clearNav();
+  }
+  clearNav();
 }
 
-function openNav () {
+function openNav() {
   main.inert = true;
   footer.inert = true;
   navMenu.inert = false;
@@ -159,7 +159,7 @@ function openNav () {
 }
 
 //sets/resets document inert state when nav toggle is present
-function closeNav () {
+function closeNav() {
   navToggle.setAttribute('aria-expanded', 'false');
   navMenu.classList.remove(active);
   main.inert = false;
@@ -171,7 +171,7 @@ function closeNav () {
 }
 
 // sets/resets document inert state when nav toggle is not present
-function clearNav () {
+function clearNav() {
   main.inert = false;
   footer.inert = false;
   navMenu.inert = false;
@@ -185,13 +185,14 @@ function clearNav () {
 // ///////////Gallery controls//////////////
 // /////////////////////////////////////////
 
-;(function () {
-  const imageLinks = document.querySelectorAll ('.gallery .gallery-item')
+;
+(function () {
+  const imageLinks = document.querySelectorAll('.gallery .gallery-item')
   imageLinks.forEach(el => {
-    el.addEventListener('click', function(e) {
+    el.addEventListener('click', function (e) {
       e.preventDefault()
-      BigPicture ({
-        el:e.target,
+      BigPicture({
+        el: e.target,
         gallery: '.gallery',
         animationStart: function () {
           // executed immediately before open animation starts
@@ -209,3 +210,97 @@ function clearNav () {
     })
   })
 })()
+
+
+// //////////////////////////////////////////
+// //////////contact form dropzone///////////
+// //////////////////////////////////////////
+
+Dropzone.autoDiscover = false;
+
+let previewZone;
+let myDropzone;
+
+if(document.querySelector('#dropzone-previews')) {
+  previewZone = document.querySelector('#dropzone-previews');
+}
+
+if(document.querySelector('#drop-area')) {
+  myDropzone = new Dropzone("#drop-area", {
+    url: "contact.html",
+    // addRemoveLinks: true,
+    previewsContainer: ".dropzone-previews",
+    autoProcessQueue: false,
+    uploadMultiple: true,
+    parallelUploads: 100,
+    maxFiles: 100,
+    maxFilesize: 10, // MB
+    dictDefaultMessage: "To upload files, drag and drop onto this region or click to upload files with the file dialog",
+    init: function() {
+      if (previewZone.hasChildNodes() === false) {
+        previewZone.style.display = "none"
+      };
+  
+      var myDropzone = this;
+      this.on("removedfile", function (file) {
+        if (previewZone.hasChildNodes() === false) {
+          previewZone.style.display = "none"
+        };
+    
+      })
+      // Remove file button
+      this.on("addedfile", function (file) {
+  
+        //Make preview zone visible
+        previewZone.style.display = "block"
+  
+        // Create the remove button
+        let removeButton = Dropzone.createElement("<button>Remove file</button>");
+  
+  
+        // Capture the Dropzone instance as closure.
+        let _this = this;
+  
+        // Listen to the click event
+        removeButton.addEventListener("click", function (e) {
+          // Make sure the button click doesn't submit the form:
+          e.preventDefault();
+          e.stopPropagation();
+  
+          // Remove the file preview.
+          _this.removeFile(file);
+          // If you want to the delete the file on the server as well,
+          // you can do the AJAX request here.
+        });
+  
+        // Add the button to the file preview element.
+        file.previewElement.appendChild(removeButton);
+      });
+  
+      // First change the button to actually tell Dropzone to process the queue.
+      document.querySelector("#submit-all").addEventListener("click", function(e) {
+        // Make sure that the form isn't actually being sent.
+        e.preventDefault();
+        e.stopPropagation();
+        myDropzone.processQueue();
+      });
+  
+      // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+      // of the sending event because uploadMultiple is set to true.
+      this.on("sendingmultiple", function() {
+        // Gets triggered when the form is actually being sent.
+        // Hide the success button or the complete form.
+      });
+      this.on("successmultiple", function(files, response) {
+        // Gets triggered when the files have successfully been sent.
+        // Redirect user or notify of success.
+      });
+      this.on("errormultiple", function(files, response) {
+        // Gets triggered when there was an error sending the files.
+        // Maybe show form again, and notify user of error
+      });
+      
+    }
+  });
+  
+}
