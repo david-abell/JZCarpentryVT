@@ -56,12 +56,17 @@
                     <h3 class="card-name">Johannes ziegler</h3>
                     <p class="card-position">Founder and president</p>
                 </div> -->
-                <form enctype='multipart/form-data' id="contact-form" action="/url-to-send-form-data" method="POST"
+                <form enctype='multipart/form-data' id="contact-form"
+                    action="https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart" method="POST"
                     class="contact-form">
                     <h3 class="card-name grid-span">Contact Details</h3>
-                    <label class="grid-left" for="submitted-name" class="field">Name:
+                    <label class="grid-left" for="submitted-first-name" class="field">First name:
                     </label>
-                    <input class="grid-right form-input" type="text" name="submitted-name" id="submitted-name"
+                    <input class="grid-right form-input" type="text" name="submitted-first-name"
+                        id="submitted-first-name" placeholder="Name">
+                    <label class="grid-left" for="submitted-last-name" class="field">Last name:
+                    </label>
+                    <input class="grid-right form-input" type="text" name="submitted-last-name" id="submitted-last-name"
                         placeholder="Name">
                     <label for="submitted-email" class="grid-left">Email:
                     </label>
@@ -85,8 +90,8 @@
                         placeholder="Project budget">
                     <label for="submitted-description" class="card-name grid-span">Tell us about your&nbspproject:
                     </label>
-                    <textarea class="grid-span form-input textarea" name="submitted-description" id="submitted-description"
-                        spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
+                    <textarea class="grid-span form-input textarea" name="submitted-description"
+                        id="submitted-description" spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
                     <h3 class="card-name grid-span">Upload plans and photos</h3>
                     <div class="grid-span form-input dropzone" id="drop-area">
                         <div class="fallback">
@@ -100,7 +105,7 @@
                             onto this
                             region</p> -->
                     </div>
-                    <div class="grid-span form-input dropzone dropzone-previews" id="dropzone-previews"></div>
+                    <!-- <div class="grid-span form-input dropzone dropzone-previews" id="dropzone-previews"></div> -->
                     <!-- <button class="grid-left form-input" type="reset">Reset form</button> -->
                     <button class="grid-span form-input" type="submit" id="submit-all">Send</button>
 
@@ -109,7 +114,7 @@
             </section>
 
         </div>
-        
+
         <!-- <form class="dropzone" action="/url-to-send-form-data" id="drop-test"></form> -->
     </main>
     <footer class="footer" id="footer">
