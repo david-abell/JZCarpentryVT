@@ -682,7 +682,7 @@ a:hover {
     border-radius: 5px;
     border: 1px solid var(--c-dark);
     color: var(--c-light);
-  }
+}
 
 .contact-form button:hover {
     background: var(--c-dark);
@@ -714,9 +714,9 @@ a:hover {
 
 .dropzone .dz-preview.dz-image-preview {
     background-color: var(--c-light) !important;
-  }
+}
 
-.dz-preview button {
+/* .dz-preview button {
     position: absolute;
     top:-3em;
     width: 100%;
@@ -724,20 +724,20 @@ a:hover {
     right: 0;
     background: var(--c-medium);
     color: var(--c-light);
-}
+} */
 
-.dz-preview button:hover {
+/* .dz-preview button:hover {
     background: var(--c-light) !important;
     color: var(--c-dark) !important;
     border: 2px solid var(--c-dark);
-  }
+  } */
 
 
-  .button:hover {
+.button:hover {
     background: var(--c-light);
     color: var(--c-dark);
     /* font-style: bold; */
-  }
+}
 
 
 @media (max-width: 480px) {
@@ -753,7 +753,7 @@ a:hover {
 
     .contact-form .card-name {
         text-align: center;
-    }    
+    }
 
     .grid-right {
         grid-column: 1 / 3;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 304px;
+        margin: 2rem auto;
+      }
+      input {
+        margin-bottom: 1rem;
+      }
+      button {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <form
+    id="form"
+    method="post"
+    action="https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart"
+    enctype="multipart/form-data"
+  >
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" />
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" />
+    <label for="email">Email Address</label>
+    <input type="text" name="email" />
+    <label for="message">message</label>
+    <input type="text" name="message" />
+    <input type="file" name="files" multiple />
+    <div
+      id="recaptcha"
+      class="g-recaptcha"
+      data-sitekey="6Ldf7QIbAAAAAOri4-dJr2SZBJ2D-MLjfH3hbljn"
+    ></div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", submitForm, true);
+
+    function submitForm(event) {
+      event.preventDefault();
+
+      // const formData = new FormData(form);
+      // const data = {
+      //   firstName: formData.get("firstName"),
+      //   lastName: formData.get("lastName"),
+      //   email: formData.get("email"),
+      //   message: formData.get("message"),
+      //   recaptcha: grecaptcha.getResponse(),
+      // };
+      // console.log(Array.from(formData));
+
+      fetch(
+        "https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart",
+        {
+          method: "POST",
+          mode: "cors",
+          body: new FormData(form),
+          // body: JSON.stringify(data),
+          // headers: {
+          //   Accept: "multipart/form-data",
+          //   "Content-Type": "multipart/form-data",
+          // },
+          // credentials: "same-origin",
+        }
+      ).then(
+        function (response) {
+          console.log(response.statusText);
+        },
+        function (error) {
+          console.error("Error:", error.message);
+        }
+      );
+    }
+  </script>
+</html>
