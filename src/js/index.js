@@ -228,13 +228,11 @@ if (document.querySelector('#drop-area')) {
   myDropzone = new Dropzone("#drop-area", {
     // url: "contact.html",
     url: "https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart",
-    // method: "post",
-    // cors: true,
-    // addRemoveLinks: true,
-    // previewsContainer: ".dropzone-previews",
-    // params: {
-    //   body: data,
-    // },
+    headers: {
+      'Cache-Control': null,
+      'X-Requested-With': null
+    },
+    paramName: "files",
     autoProcessQueue: false,
     uploadMultiple: true,
     parallelUploads: 100,
@@ -246,13 +244,12 @@ if (document.querySelector('#drop-area')) {
     // },
     init: function () {
       const submitAll = document.querySelector("#submit-all")
-      // First change the button to actually tell Dropzone to process the queue.
+      // tell Dropzone to process file queue.
       submitAll.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
         console.log(myDropzone);
         myDropzone.processQueue();
-        console.log(data)
       });
 
 
@@ -265,18 +262,28 @@ if (document.querySelector('#drop-area')) {
 
       // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
       // of the sending event because uploadMultiple is set to true.
-      this.on("sendingmultiple", function() {
+      this.on("sendingmultiple", function (files, xhr, formData) {
         // Gets triggered when the form is actually being sent.
-        // Hide the success button or the complete form.
+        // Attach form inputs to transmitting form data
         const contactData = new FormData(contactForm);
         const data = {
           firstName: contactData.get("submitted-first-name"),
           lastName: contactData.get("submitted-last-name"),
           email: contactData.get("submitted-email"),
           message: contactData.get("submitted-description"),
-          // recaptcha: grecaptcha.getResponse(),
+          "g-recaptcha-response": grecaptcha.getResponse(),
         };
-        myDropzone.options.params.body = data;
+        // myDropzone.options.params.body = data;
+        // formData.append("body", data)
+        for (let key in data) {
+          formData.append(key, data[key])
+        }
+        console.log(Array.from(formData.entries()))
+        console.log(files)
+        // console.log(Array.from(contactData))
+
+        // Hide the success button or the complete form.
+
 
       });
       this.on("successmultiple", function (files, response) {
@@ -288,7 +295,7 @@ if (document.querySelector('#drop-area')) {
       this.on("errormultiple", function (files, response) {
         // Gets triggered when there was an error sending the files.
         // Maybe show form again, and notify user of error
-        console.error("files:", response.message);
+        console.error("error:", response.message);
 
       });
 
