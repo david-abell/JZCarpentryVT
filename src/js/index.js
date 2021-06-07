@@ -237,7 +237,7 @@ if (document.querySelector('#drop-area')) {
     uploadMultiple: true,
     parallelUploads: 100,
     maxFiles: 100,
-    maxFilesize: 9, // MB
+    maxFilesize: 6, // MB
     dictDefaultMessage: "To upload files, click or drag and drop here",
     // transformFile: function(file, done) { 
 
@@ -289,7 +289,7 @@ if (document.querySelector('#drop-area')) {
       this.on("successmultiple", function (files, response) {
         // Gets triggered when the files have successfully been sent.
         // Redirect user or notify of success.
-        console.log(response.statusText);
+        console.log(response.message);
 
       });
       this.on("errormultiple", function (files, response) {
