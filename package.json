@@ -4,7 +4,7 @@
   "description": "JZ Carpentry",
   "default": "./src/index.html",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --no-cache",
     "build": "parcel build src/index.html"
   },
   "author": "David Abell",
@@ -15,6 +15,7 @@
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "parcel-transformer-html-datasrc": "^1.3.0"
   }
 }
