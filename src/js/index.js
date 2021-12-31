@@ -7,14 +7,14 @@ document.body.classList.add("js");
 
 const main = document.querySelector("#main");
 const footer = document.querySelector("#footer");
-const active = "is-active";
+const isActive = "is-active";
 const body = document.body;
 
 let navToggle = document.querySelector("#nav-toggle");
 let navToggleState = 0;
 let pageHeader = document.querySelector(".page-header");
 let navMenu = document.querySelector("#nav-menu");
-let heroContent = document.querySelector(".hero-content-background");
+let heroContent = document.querySelector(".hero-content");
 
 const scrollDown = "scroll-down";
 const scrollUp = "scroll-up";
@@ -83,7 +83,7 @@ document.addEventListener(
     if (
       pageHeader != e.target &&
       !pageHeader.contains(e.target) &&
-      navMenu.classList.contains(active)
+      navMenu.classList.contains(isActive)
     ) {
       closeNav();
     }
@@ -150,9 +150,9 @@ function openNav() {
   main.inert = true;
   footer.inert = true;
   navMenu.inert = false;
-  navMenu.classList.add(active);
+  navMenu.classList.add(isActive);
   navToggle.setAttribute("aria-expanded", "true");
-  navToggle.classList.add(active);
+  navToggle.classList.add(isActive);
   navToggleState = 1;
   addInertStyle();
 }
@@ -160,11 +160,11 @@ function openNav() {
 //sets/resets document inert state when nav toggle is present
 function closeNav() {
   navToggle.setAttribute("aria-expanded", "false");
-  navMenu.classList.remove(active);
+  navMenu.classList.remove(isActive);
   main.inert = false;
   footer.inert = false;
   navMenu.inert = true;
-  navToggle.classList.remove(active);
+  navToggle.classList.remove(isActive);
   navToggleState = 0;
   removeInertStyle();
 }
@@ -174,9 +174,9 @@ function clearNav() {
   main.inert = false;
   footer.inert = false;
   navMenu.inert = false;
-  navMenu.classList.remove(active);
+  navMenu.classList.remove(isActive);
   navToggle.setAttribute("aria-expanded", "false");
-  navToggle.classList.remove(active);
+  navToggle.classList.remove(isActive);
   removeInertStyle();
 }
 
