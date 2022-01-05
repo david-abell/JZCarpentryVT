@@ -1,154 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JZ Carpentry</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Neuton|Work+Sans" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/545eea5e46.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Neuton|Work+Sans"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/545eea5e46.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     <script
-    type="module"
-    src="/node_modules/wicg-inert/dist/inert.min.js"
-  ></script>
-  <script type="module" src="./js/index.js"></script>
+      type="module"
+      src="/node_modules/wicg-inert/dist/inert.min.js"
+    ></script>
+    <script type="module" src="./js/index.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="./css/inert.css" id="inert-style">
-    <link rel="stylesheet" href="./css/main.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/inert.css"
+      id="inert-style"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
     <!-- <link rel="stylesheet" href="../node_modules/dropzone/dist/dropzone.css"> -->
+  </head>
 
-</head>
-
-<body id="body" class="">
-
+  <body id="body" class="">
     <header class="page-header">
-        <nav class="navbar">
-            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false"
-                aria-controls="nav-menu">
-                <span class="screen-reader">Navigation</span>
-            </button>
-            <a class="company-logo" href="./index.html"><img src="./images/logo.svg" alt="JZ Carpentry home page"></a>
-            <ul class='nav-menu' id='nav-menu'>
-                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./bio.html">Our Team</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#">Our Process</a></li> -->
-                <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact-header">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="screen-reader">Navigation</span>
+        </button>
+        <a class="company-logo" href="./index.html"
+          ><img src="./images/logo.svg" alt="JZ Carpentry home page"
+        /></a>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./bio.html">Our Team</a>
+          </li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#">Our Process</a></li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact-header">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main class="main" id="main">
-        <div class="hero" id="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Making your space beautiful and functional</h1>
-            </div>
+      <div class="hero" id="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Making your space beautiful and functional</h1>
         </div>
-
-        <header id="contact-header" class="section-header">
-            <h2 class="section-title">Contact us today!</h1>
-                <div class="section-subtitle">great service at a fair price</div>
-        </header>
-
-        <div class="card-wrapper">
+      </div>
+      <div class="main-content">
+        <article class="article-wrapper" id="contact-form">
+          <hgroup class="title-group">
+            <h2 class="section-title">Contact us today!</h2>
+            <div class="section-subtitle">great service at a fair price</div>
+          </hgroup>
+          <div class="card-wrapper">
             <section class="card card-contact flow">
-                <!-- <div class="card-side">
+              <!-- <div class="card-side">
                     <img class="card-img" src="https://www.placecage.com/420/420" alt="employee portrait">
                     <h3 class="card-name">Johannes ziegler</h3>
                     <p class="card-position">Founder and president</p>
                 </div> -->
-                <form enctype='multipart/form-data' id="contact-form"
-                    action="https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart" method="POST"
-                    class="contact-form">
-                    <h3 class="card-name grid-span">Contact Details</h3>
-                    <label class="grid-left" for="submitted-first-name" class="field">First name:
-                    </label>
-                    <input class="grid-right form-input" type="text" name="submitted-first-name"
-                        id="submitted-first-name" placeholder="Name">
-                    <label class="grid-left" for="submitted-last-name" class="field">Last name:
-                    </label>
-                    <input class="grid-right form-input" type="text" name="submitted-last-name" id="submitted-last-name"
-                        placeholder="Name">
-                    <label for="submitted-email" class="grid-left">Email:
-                    </label>
-                    <input class="grid-right form-input" type="email" name="submitted-email" id="submitted-email"
-                        placeholder="Email">
-                    <label for="submitted-phone" class="grid-left">Phone:
-                    </label>
-                    <input class="grid-right form-input" type="phone" name="submitted-phone" id="submitted-phone"
-                        placeholder="Phone">
-                    <label for="submitted-address" class="grid-left">Address:
-                    </label>
-                    <input class="grid-right form-input" type="address" name="submitted-address" id="submitted-address"
-                        placeholder="Address">
-                    <label for="submitted-timeline" class="grid-left">Project timeline:
-                    </label>
-                    <input class="grid-right form-input" type="text" name="submitted-timeline" id="submitted-timeline"
-                        placeholder="Project timeline">
-                    <label for="submitted-budget" class="grid-left">Project budget:
-                    </label>
-                    <input class="grid-right form-input" type="number" name="submitted-budget" id="submitted-budget"
-                        placeholder="Project budget">
-                    <label for="submitted-description" class="card-name grid-span">Tell us about your&nbspproject:
-                    </label>
-                    <textarea class="grid-span form-input textarea" name="submitted-description"
-                        id="submitted-description" spellcheck="true" maxlength="5000" cols="30" rows="10"></textarea>
-                    <h3 class="card-name grid-span">Upload plans and photos</h3>
-                    <div class="grid-span form-input dropzone" id="drop-area">
-                        <div class="fallback">
-                            <div class="grid-span form-input">
-                                <input class="form-input" type="file" id="submitted-files" multiple">
-                                <label class="button" for="submitted-files">Select files to upload</label>
-                            </div>
-                        </div>
+              <form
+                enctype="multipart/form-data"
+                id="contact-form"
+                action="https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart"
+                method="POST"
+                class="contact-form"
+              >
+                <h3 class="card-caption grid-span">Contact Details</h3>
+                <label
+                  class="grid-left"
+                  for="submitted-first-name"
+                  class="field"
+                  >First name:
+                </label>
+                <input
+                  class="grid-right form-input"
+                  type="text"
+                  name="submitted-first-name"
+                  id="submitted-first-name"
+                  placeholder="Name"
+                />
+                <label class="grid-left" for="submitted-last-name" class="field"
+                  >Last name:
+                </label>
+                <input
+                  class="grid-right form-input"
+                  type="text"
+                  name="submitted-last-name"
+                  id="submitted-last-name"
+                  placeholder="Name"
+                />
+                <label for="submitted-email" class="grid-left">Email: </label>
+                <input
+                  class="grid-right form-input"
+                  type="email"
+                  name="submitted-email"
+                  id="submitted-email"
+                  placeholder="Email"
+                />
+                <label for="submitted-phone" class="grid-left">Phone: </label>
+                <input
+                  class="grid-right form-input"
+                  type="phone"
+                  name="submitted-phone"
+                  id="submitted-phone"
+                  placeholder="Phone"
+                />
+                <label for="submitted-address" class="grid-left"
+                  >Address:
+                </label>
+                <input
+                  class="grid-right form-input"
+                  type="address"
+                  name="submitted-address"
+                  id="submitted-address"
+                  placeholder="Address"
+                />
+                <label for="submitted-timeline" class="grid-left"
+                  >Project timeline:
+                </label>
+                <input
+                  class="grid-right form-input"
+                  type="text"
+                  name="submitted-timeline"
+                  id="submitted-timeline"
+                  placeholder="Project timeline"
+                />
+                <label for="submitted-budget" class="grid-left"
+                  >Project budget:
+                </label>
+                <input
+                  class="grid-right form-input"
+                  type="number"
+                  name="submitted-budget"
+                  id="submitted-budget"
+                  placeholder="Project budget"
+                />
+                <label
+                  for="submitted-description"
+                  class="card-caption grid-span"
+                  >Tell us about your&nbspproject:
+                </label>
+                <textarea
+                  class="grid-span form-input textarea"
+                  name="submitted-description"
+                  id="submitted-description"
+                  spellcheck="true"
+                  maxlength="5000"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+                <h3 class="card-caption grid-span">Upload plans and photos</h3>
+                <div class="grid-span form-input dropzone" id="drop-area">
+                  <div class="fallback">
+                    <div class="grid-span form-input">
+                      <input class="form-input" type="file" id="submitted-files"
+                      multiple">
+                      <label class="button" for="submitted-files"
+                        >Select files to upload</label
+                      >
+                    </div>
+                  </div>
 
-                        <!-- <p id="drop-area-text">Click here to upload files with the file dialog or drag and drop files
+                  <!-- <p id="drop-area-text">Click here to upload files with the file dialog or drag and drop files
                             onto this
                             region</p> -->
-                    </div>
-                    <!-- <div class="grid-span form-input dropzone dropzone-previews" id="dropzone-previews"></div> -->
-                    <!-- <button class="grid-left form-input" type="reset">Reset form</button> -->
-                    <div id="recaptcha" class="g-recaptcha" data-sitekey="6Ldf7QIbAAAAAOri4-dJr2SZBJ2D-MLjfH3hbljn">
-                    </div>
-                    <button class="grid-span form-input" type="submit" id="submit-all">Send</button>
-
-
-                </form>
+                </div>
+                <!-- <div class="grid-span form-input dropzone dropzone-previews" id="dropzone-previews"></div> -->
+                <!-- <button class="grid-left form-input" type="reset">Reset form</button> -->
+                <div
+                  id="recaptcha"
+                  class="g-recaptcha"
+                  data-sitekey="6Ldf7QIbAAAAAOri4-dJr2SZBJ2D-MLjfH3hbljn"
+                ></div>
+                <button
+                  class="grid-span form-input"
+                  type="submit"
+                  id="submit-all"
+                >
+                  Send
+                </button>
+              </form>
             </section>
-
-        </div>
-
-        <!-- <form class="dropzone" action="/url-to-send-form-data" id="drop-test"></form> -->
+          </div>
+        </article>
+      </div>
+      <!-- <form class="dropzone" action="/url-to-send-form-data" id="drop-test"></form> -->
     </main>
     <footer class="footer" id="footer">
-        <div class="footer-wrapper">
-            <h4 class="footer-title">Get in touch</h4>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
-                        <i class="icon fas fa-map-marker-alt"></i><span class="screen-reader">Location</span>Burlington
-                        VT
-                    </a>
-                </li>
-                <li class="footer-item">
-                    <a href="tel:802-598-8070" class="footer-link">
-                        <i class="icon fas fa-phone-alt"></i><span class="screen-reader">Phone number</span>802-598-8070
-                    </a>
-                </li>
-                <li class="footer-item">
-                    <a href="#contact-header" class="footer-link">
-                        <i class="icon fas fa-envelope"></i>Email
-                    </a>
-                </li>
-            </ul>
-            <div class="credit">
-                <p><span>&copy;</span><span id="copyright-year"></span> JZ&nbspCarpentry LLC</p>
-                <p>Web design by David Abell</p>
-            </div>
+      <div class="footer-wrapper">
+        <h4 class="footer-title">Get in touch</h4>
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
+              <i class="icon fas fa-map-marker-alt"></i
+              ><span class="screen-reader">Location</span>Burlington VT
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="tel:802-598-8070" class="footer-link">
+              <i class="icon fas fa-phone-alt"></i
+              ><span class="screen-reader">Phone number</span>802-598-8070
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="#contact-header" class="footer-link">
+              <i class="icon fas fa-envelope"></i>Email
+            </a>
+          </li>
+        </ul>
+        <div class="credit">
+          <p>
+            <span>&copy;</span
+            ><span id="copyright-year"></span> JZ&nbspCarpentry LLC
+          </p>
+          <p>Web design by David Abell</p>
         </div>
-        <!-- <div class="floating-wrapper">
+      </div>
+      <!-- <div class="floating-wrapper">
             <ul class="floating-list">
                 <li class="floating-item"><a href="./portfolio.html" class="floating-link">our work</a></li>
                 <li class="floating-item"><a href="./contact.html" class="floating-link">Contact us</a></li>
@@ -161,8 +253,5 @@
     </script> -->
     <!-- <script src="./js/inert.js"></script> -->
     <!-- <script src="./js/index.js"></script> -->
-
-
-</body>
-
+  </body>
 </html>
