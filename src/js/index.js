@@ -15,11 +15,23 @@ let navToggleState = 0;
 let pageHeader = document.querySelector(".page-header");
 let navMenu = document.querySelector("#nav-menu");
 let heroContent = document.querySelector(".hero-content");
+let scrollingBackground = document.querySelector("#scrolling-bg");
 
 const scrollDown = "scroll-down";
 const scrollUp = "scroll-up";
 let lastScroll = 0;
 
+function setFixedScrollingHeights() {
+  const scrollingContainer = document.querySelector("#scrolling-container");
+  const calcScrollingHeight =
+    scrollingContainer.getBoundingClientRect().height +
+    scrollingContainer["children"][1].getBoundingClientRect().height;
+  scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
+  scrollingBackground.style.maxHeight = calcScrollingHeight.toString() + "px";
+  scrollingBackground.style.minHeight = calcScrollingHeight.toString() + "px";
+  console.log(scrollingBackground.style.maxHeight);
+  console.log(calcScrollingHeight);
+}
 // //////////////////////////////////////////
 // ///////////listeners & events/////////////
 // //////////////////////////////////////////
@@ -59,8 +71,10 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
+window.addEventListener("resize", debounce(setFixedScrollingHeights));
+
 //set initial inert state for navtoggle
-document.addEventListener("load", navReset());
+window.addEventListener("load", navReset());
 
 // fade in animation helper
 window.addEventListener("load", addFadeClass());
