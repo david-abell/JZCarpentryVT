@@ -890,20 +890,20 @@ a:hover {
 /***********************************************/
 /*************contact form styling**************/
 /***********************************************/
-/* .main-content #contact-form {
+/* .main-content #form-container {
   width: 60rem;
 } */
 .card-contact {
-  background-color: var(--c-medium);
+  background-color: var(--c-white);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: var(--shadow);
-  border-radius: var(--border-radius);
+  box-shadow: none;
+  /* border-radius: var(--border-radius); */
   padding: var(--spacer-medium);
   text-align: left;
-  color: var(--c-white);
+  color: var(--c-dark);
   text-align: left;
   position: relative;
   width: 100%;
@@ -911,13 +911,18 @@ a:hover {
 }
 
 .contact-form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   grid-template-columns: 10rem 1fr;
-  font-size: 1.1rem;
+  font-size: var(--fs-small);
   font-family: var(--ff-sans);
   align-items: center;
   gap: var(--spacer);
+}
+
+.contact-form > * {
+  width: 100%;
 }
 
 .grid-span {
@@ -934,6 +939,7 @@ a:hover {
 
 .grid-right {
   grid-column: 2/3;
+  margin-bottom: var(--spacer-medium);
 }
 
 .contact-form .card-name {
@@ -942,10 +948,11 @@ a:hover {
 }
 
 .form-input {
-  font-size: 1.1rem;
+  font-size: var(--fs-p);
   font-family: var(--ff-p-sans);
   border-radius: var(--border-radius);
-  border-style: none;
+  border-color: var(--c-dark);
+  border-style: dotted;
   padding: var(--spacer);
   background-color: var(--c-white);
   color: var(--c-dark);
@@ -961,7 +968,7 @@ a:hover {
   border-radius: var(--border-radius);
   color: var(--c-dark);
   font-family: var(--ff-sans);
-  font-size: 1.1rem;
+  font-size: var(--fs-small);
   padding: var(--spacer);
 }
 
@@ -1039,9 +1046,9 @@ a:hover {
     text-align: center;
   }
 
-  .contact-form .card-name {
+  /* .contact-form .card-name {
     text-align: center;
-  }
+  } */
 
   .grid-right {
     grid-column: 1 / 3;

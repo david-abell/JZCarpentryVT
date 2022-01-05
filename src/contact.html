@@ -7,7 +7,7 @@
     <title>JZ Carpentry</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css?family=Neuton|Work+Sans"
+      href="https://fonts.googleapis.com/css?family=Neuton%7CWork+Sans%7COpen+Sans"
       rel="stylesheet"
     />
     <script
@@ -73,7 +73,7 @@
         <article class="article-wrapper" id="contact-form">
           <hgroup class="title-group">
             <h2 class="section-title">Contact us today!</h2>
-            <div class="section-subtitle">great service at a fair price</div>
+            <h3 class="section-subtitle">great service at a fair price</h3>
           </hgroup>
           <div class="card-wrapper">
             <section class="card card-contact flow">
@@ -84,16 +84,12 @@
                 </div> -->
               <form
                 enctype="multipart/form-data"
-                id="contact-form"
+                id="form-container"
                 action="https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart"
                 method="POST"
                 class="contact-form"
               >
-                <h3 class="card-caption grid-span">Contact Details</h3>
-                <label
-                  class="grid-left"
-                  for="submitted-first-name"
-                  class="field"
+                <label class="grid-left" for="submitted-first-name"
                   >First name:
                 </label>
                 <input
@@ -101,9 +97,8 @@
                   type="text"
                   name="submitted-first-name"
                   id="submitted-first-name"
-                  placeholder="Name"
                 />
-                <label class="grid-left" for="submitted-last-name" class="field"
+                <label class="grid-left" for="submitted-last-name"
                   >Last name:
                 </label>
                 <input
@@ -111,33 +106,29 @@
                   type="text"
                   name="submitted-last-name"
                   id="submitted-last-name"
-                  placeholder="Name"
                 />
-                <label for="submitted-email" class="grid-left">Email: </label>
+                <label for="submitted-email" class="grid-left">Email:</label>
                 <input
                   class="grid-right form-input"
                   type="email"
                   name="submitted-email"
                   id="submitted-email"
-                  placeholder="Email"
                 />
-                <label for="submitted-phone" class="grid-left">Phone: </label>
+                <label for="submitted-phone" class="grid-left">Phone:</label>
                 <input
                   class="grid-right form-input"
-                  type="phone"
+                  type="text"
                   name="submitted-phone"
                   id="submitted-phone"
-                  placeholder="Phone"
                 />
                 <label for="submitted-address" class="grid-left"
                   >Address:
                 </label>
                 <input
                   class="grid-right form-input"
-                  type="address"
+                  type="text"
                   name="submitted-address"
                   id="submitted-address"
-                  placeholder="Address"
                 />
                 <label for="submitted-timeline" class="grid-left"
                   >Project timeline:
@@ -162,7 +153,7 @@
                 <label
                   for="submitted-description"
                   class="card-caption grid-span"
-                  >Tell us about your&nbspproject:
+                  >Tell us about your&nbsp;project:
                 </label>
                 <textarea
                   class="grid-span form-input textarea"
@@ -177,8 +168,12 @@
                 <div class="grid-span form-input dropzone" id="drop-area">
                   <div class="fallback">
                     <div class="grid-span form-input">
-                      <input class="form-input" type="file" id="submitted-files"
-                      multiple">
+                      <input
+                        class="form-input"
+                        type="file"
+                        id="submitted-files"
+                        multiple
+                      />
                       <label class="button" for="submitted-files"
                         >Select files to upload</label
                       >
@@ -235,7 +230,7 @@
         <div class="credit">
           <p>
             <span>&copy;</span
-            ><span id="copyright-year"></span> JZ&nbspCarpentry LLC
+            ><span id="copyright-year"></span> JZ&nbsp;Carpentry LLC
           </p>
           <p>Web design by David Abell</p>
         </div>
