@@ -89,97 +89,124 @@
                 method="POST"
                 class="contact-form"
               >
-                <label class="grid-left" for="submitted-first-name"
-                  >First name:
-                </label>
-                <input
-                  class="grid-right form-input"
-                  type="text"
-                  name="submitted-first-name"
-                  id="submitted-first-name"
-                />
-                <label class="grid-left" for="submitted-last-name"
-                  >Last name:
-                </label>
-                <input
-                  class="grid-right form-input"
-                  type="text"
-                  name="submitted-last-name"
-                  id="submitted-last-name"
-                />
-                <label for="submitted-email" class="grid-left">Email:</label>
-                <input
-                  class="grid-right form-input"
-                  type="email"
-                  name="submitted-email"
-                  id="submitted-email"
-                />
-                <label for="submitted-phone" class="grid-left">Phone:</label>
-                <input
-                  class="grid-right form-input"
-                  type="text"
-                  name="submitted-phone"
-                  id="submitted-phone"
-                />
-                <label for="submitted-address" class="grid-left"
-                  >Address:
-                </label>
-                <input
-                  class="grid-right form-input"
-                  type="text"
-                  name="submitted-address"
-                  id="submitted-address"
-                />
-                <label for="submitted-timeline" class="grid-left"
-                  >Project timeline:
-                </label>
-                <input
-                  class="grid-right form-input"
-                  type="text"
-                  name="submitted-timeline"
-                  id="submitted-timeline"
-                  placeholder="Project timeline"
-                />
-                <label for="submitted-budget" class="grid-left"
-                  >Project budget:
-                </label>
-                <input
-                  class="grid-right form-input"
-                  type="number"
-                  name="submitted-budget"
-                  id="submitted-budget"
-                  placeholder="Project budget"
-                />
-                <label
-                  for="submitted-description"
-                  class="card-caption grid-span"
-                  >Tell us about your&nbsp;project:
-                </label>
-                <textarea
-                  class="grid-span form-input textarea"
-                  name="submitted-description"
-                  id="submitted-description"
-                  spellcheck="true"
-                  maxlength="5000"
-                  cols="30"
-                  rows="10"
-                ></textarea>
-                <h3 class="card-caption grid-span">Upload plans and photos</h3>
-                <div class="grid-span form-input dropzone" id="drop-area">
-                  <div class="fallback">
-                    <div class="grid-span form-input">
-                      <input
-                        class="form-input"
-                        type="file"
-                        id="submitted-files"
-                        multiple
-                      />
-                      <label class="button" for="submitted-files"
-                        >Select files to upload</label
-                      >
+                <div class="form-group">
+                  <div class="label-group">
+                    <label class="grid-left" for="submitted-first-name"
+                      >First name:
+                    </label>
+                    <input
+                      class="grid-right form-input"
+                      type="text"
+                      name="submitted-first-name"
+                      id="submitted-first-name"
+                    />
+                  </div>
+                  <div class="label-group">
+                    <label class="grid-left" for="submitted-last-name"
+                      >Last name:
+                    </label>
+                    <input
+                      class="grid-right form-input"
+                      type="text"
+                      name="submitted-last-name"
+                      id="submitted-last-name"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="label-group">
+                    <label for="submitted-email" class="grid-left"
+                      >Email:</label
+                    >
+                    <input
+                      class="grid-right form-input"
+                      type="email"
+                      name="submitted-email"
+                      id="submitted-email"
+                    />
+                  </div>
+                  <div class="label-group">
+                    <label for="submitted-phone" class="grid-left"
+                      >Phone:</label
+                    >
+                    <input
+                      class="grid-right form-input"
+                      type="tel"
+                      name="submitted-phone"
+                      id="submitted-phone"
+                    />
+                  </div>
+                </div>
+                <div class="label-group">
+                  <label for="submitted-address" class="grid-left"
+                    >Address:
+                  </label>
+                  <input
+                    class="grid-right form-input"
+                    type="text"
+                    name="submitted-address"
+                    id="submitted-address"
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="label-group">
+                    <label for="submitted-timeline" class="grid-left"
+                      >Project timeline: (optional)
+                    </label>
+                    <input
+                      class="grid-right form-input"
+                      type="text"
+                      name="submitted-timeline"
+                      id="submitted-timeline"
+                    />
+                  </div>
+                  <div class="label-group">
+                    <label for="submitted-budget" class="grid-left"
+                      >Project budget: (optional)
+                    </label>
+                    <input
+                      class="grid-right form-input"
+                      type="number"
+                      name="submitted-budget"
+                      id="submitted-budget"
+                    />
+                  </div>
+                </div>
+                <div class="label-group">
+                  <label
+                    for="submitted-description"
+                    class="card-caption grid-span"
+                    >Tell us about your&nbsp;project:
+                  </label>
+                  <textarea
+                    class="grid-span form-input textarea"
+                    name="submitted-description"
+                    id="submitted-description"
+                    spellcheck="true"
+                    maxlength="5000"
+                    cols="30"
+                    rows="10"
+                  ></textarea>
+                </div>
+                <div class="label-group">
+                  <h3 class="card-caption grid-span">
+                    Upload plans and photos
+                  </h3>
+                  <div class="grid-span form-input dropzone" id="drop-area">
+                    <div class="fallback">
+                      <div class="grid-span form-input">
+                        <input
+                          class="form-input"
+                          type="file"
+                          id="submitted-files"
+                          multiple
+                        />
+                        <label class="button" for="submitted-files"
+                          >Select files to upload</label
+                        >
+                      </div>
                     </div>
                   </div>
-
                   <!-- <p id="drop-area-text">Click here to upload files with the file dialog or drag and drop files
                             onto this
                             region</p> -->

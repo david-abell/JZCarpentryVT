@@ -63,16 +63,6 @@
   --breakpoint-large: 78.125rem;
 }
 
-/* @media (max-width: 850px) {
-  :root {
-    --fs-xlarge: 7.5rem;
-    --fs-large: 3rem;
-    --fs-medium: 3rem;
-    --fs-small: 1.75rem;
-    --fs-p: 1rem;
-  }
-} */
-
 *,
 *::before,
 *::after {
@@ -299,7 +289,7 @@ a:hover {
   background-image: url("../images/menucross.svg");
 }
 
-@media (max-width: 850px) {
+@media (max-width: 780px) {
   .js .nav-toggle {
     display: block;
     position: relative;
@@ -894,17 +884,16 @@ a:hover {
   width: 60rem;
 } */
 .card-contact {
-  background-color: var(--c-white);
+  background-color: var(--c-medium);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  box-shadow: none;
+  /* align-items: center; */
+  /* box-shadow: none; */
   /* border-radius: var(--border-radius); */
-  padding: var(--spacer-medium);
+  padding: var(--spacer-xlarge);
   text-align: left;
-  color: var(--c-dark);
-  text-align: left;
+  color: var(--c-white);
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -914,8 +903,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  grid-template-columns: 10rem 1fr;
-  font-size: var(--fs-small);
+  grid-template-columns: 1fr 1fr;
+  font-size: var(--fs-p);
   font-family: var(--ff-sans);
   align-items: center;
   gap: var(--spacer);
@@ -925,37 +914,57 @@ a:hover {
   width: 100%;
 }
 
+.label-group {
+  display: flex;
+  gap: var(--spacer);
+  flex-direction: column;
+}
+
+.form-group {
+  display: grid;
+  column-gap: var(--spacer-large);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
 .grid-span {
-  grid-column: 1/3;
-  padding: var(--spacer) 0em;
+  /* grid-column: 1/3;
+  padding: var(--spacer) 0em; */
   text-align: center;
 }
 
-.grid-left {
+/* .grid-left {
   grid-column: 1 / 2;
-  /* margin-right: var(--spacer); */
+  margin-right: var(--spacer);
   font-family: var(--ff-sans);
-}
+} */
 
 .grid-right {
-  grid-column: 2/3;
-  margin-bottom: var(--spacer-medium);
+  /* grid-column: 2/3; */
+  margin-bottom: var(--spacer);
 }
 
-.contact-form .card-name {
+/* .contact-form .card-name {
   margin: 0;
   text-transform: none;
-}
+} */
 
 .form-input {
   font-size: var(--fs-p);
   font-family: var(--ff-p-sans);
   border-radius: var(--border-radius);
-  border-color: var(--c-dark);
-  border-style: dotted;
+  /* border-color: var(--c-light-accent); */
+  border-width: 5px;
+  border-style: none;
   padding: var(--spacer);
   background-color: var(--c-white);
   color: var(--c-dark);
+}
+
+.form-input:focus {
+  background-color: var(--c-light);
+  outline-color: var(--c-dark);
+  outline-width: 0.25rem;
+  outline-style: solid;
 }
 
 .textarea {
@@ -982,10 +991,10 @@ a:hover {
   color: var(--c-white);
 }
 
-.contact-form button:hover {
+/* .contact-form button:hover {
   background: var(--c-dark);
   color: var(--c-white);
-}
+} */
 
 #drop-area {
   /* display: grid;
@@ -993,7 +1002,7 @@ a:hover {
   background-color: var(--c-white);
   color: var(--c-dark);
   min-height: 10em;
-  border: 3px dashed var(--c-medium);
+  border: 0.25rem dashed var(--c-medium);
 }
 
 #drop-area.highlight {
@@ -1035,12 +1044,16 @@ a:hover {
   /* font-style: bold; */
 }
 
-@media (max-width: 480px) {
-  .grid-left {
+@media (max-width: 575px) {
+  .card-contact {
+    padding: var(--spacer-medium);
+  }
+
+  /* .grid-left {
     grid-column: 1 / 3;
     margin: 0;
     text-align: left;
-  }
+  } */
 
   .contact-form button {
     text-align: center;
@@ -1050,11 +1063,11 @@ a:hover {
     text-align: center;
   } */
 
-  .grid-right {
+  /* .grid-right {
     grid-column: 1 / 3;
     margin: 0;
     text-align: center;
-  }
+  } */
 }
 
 /***********************************************/
@@ -1081,7 +1094,7 @@ a:hover {
   box-shadow: var(--shadow);
 }
 
-@media (min-width: 480px) {
+@media (min-width: 575px) {
   .gallery-item:first-child {
     grid-area: 1 / 1 / span 2 / span 2;
   }
@@ -1156,7 +1169,7 @@ a:hover {
   padding-right: var(--spacer);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 780px) {
   .footer-wrapper {
     padding: var(--spacer-large) 0em;
   }
