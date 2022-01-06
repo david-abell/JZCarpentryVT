@@ -1,4 +1,5 @@
 import "wicg-inert";
+import lozad from "lozad";
 import BigPicture from "bigpicture";
 import Dropzone from "dropzone";
 import "dropzone/dist/dropzone.css";
@@ -35,6 +36,9 @@ function setFixedScrollingHeights() {
 // //////////////////////////////////////////
 // ///////////listeners & events/////////////
 // //////////////////////////////////////////
+
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
 
 //scroll to show/hide navigation
 //https://webdesign.tutsplus.com/tutorials/how-to-hide-reveal-a-sticky-header-on-scroll-with-javascript--cms-33756
