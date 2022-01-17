@@ -385,7 +385,7 @@ const handleSubmit = (e) => {
   const formSubject = submittedEmail
     ? `New JZ Carpentry contact from ${submittedEmail}`
     : `New JZ Carpentry contact`;
-  formData.set("subject", formSubject);
+  formData.append("subject", formSubject);
   console.log(...formData);
   fetch("/", {
     method: "POST",
