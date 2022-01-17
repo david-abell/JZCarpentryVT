@@ -28,7 +28,7 @@ let lastScroll = 0;
   //////////////////////////////////////////
 */
 function setFixedScrollingHeights() {
-  if (!document.querySelector("#scrolling-container")) {
+  if (!scrollingBackground) {
     return;
   }
   const scrollingContainer = document
