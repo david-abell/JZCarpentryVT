@@ -631,8 +631,8 @@ a:hover {
   height: 100%;
   width: 100%;
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
-    top 0% left 10% / cover no-repeat
-      url(../images/banners/20201022_111032_cropped.webp);
+    bottom 30% left 0 / cover no-repeat
+      url(../images/banners/20210405_170207.webp);
   /* background-size: auto 100%; */
   background-attachment: fixed;
 }
