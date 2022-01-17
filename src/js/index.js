@@ -386,14 +386,14 @@ const handleSubmit = (e) => {
     ? `New JZ Carpentry contact from ${submittedEmail}`
     : `New JZ Carpentry contact`;
   formData.set("subject", formSubject);
-  console.log(...formData);
+  const redirectUrl = new URL("../form-submission.html", import.meta.url);
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
   })
     .then(() => console.log("Form successfully submitted"))
-    .then(() => window.location.replace("../form-submission.html"))
+    .then(() => window.location.replace(redirectUrl))
     .catch((error) => alert(error));
 };
 
