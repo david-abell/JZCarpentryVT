@@ -22,21 +22,37 @@ const scrollDown = "scroll-down";
 const scrollUp = "scroll-up";
 let lastScroll = 0;
 
+/* 
+  //////////////////////////////////////////
+  ///////scrolling background setup/////////
+  //////////////////////////////////////////
+*/
 function setFixedScrollingHeights() {
-  const scrollingContainer = document.querySelector("#scrolling-container");
+  const scrollingContainer = document
+    .querySelector("#scrolling-container")
+    .getBoundingClientRect();
+  const scrollingChildHeight = document
+    .querySelector("#scrolling-container")
+    ["children"][1].getBoundingClientRect().height;
+  const scrollingContainerHeight = scrollingContainer.height;
+  const scrollingContainerWidth = scrollingContainer.width;
   const calcScrollingHeight =
-    scrollingContainer.getBoundingClientRect().height +
-    scrollingContainer["children"][1].getBoundingClientRect().height;
+    scrollingContainerWidth > scrollingContainerHeight
+      ? window.innerHeight
+      : scrollingContainerHeight + scrollingChildHeight;
   scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
-  scrollingBackground.style.maxHeight = calcScrollingHeight.toString() + "px";
-  scrollingBackground.style.minHeight = calcScrollingHeight.toString() + "px";
-  console.log(scrollingBackground.style.maxHeight);
-  console.log(calcScrollingHeight);
+  // scrollingBackground.style.maxHeight = calcScrollingHeight.toString() + "px";
+  // scrollingBackground.style.minHeight = calcScrollingHeight.toString() + "px";
+  console.log(scrollingContainer);
+  console.log(scrollingContainerWidth);
+  console.log(window.innerHeight);
 }
-// //////////////////////////////////////////
-// ///////////listeners & events/////////////
-// //////////////////////////////////////////
 
+/* 
+  //////////////////////////////////////////
+  ///////////listeners & events/////////////
+  //////////////////////////////////////////
+*/
 const observer = lozad(); // lazy loads elements with default selector as '.lozad'
 observer.observe();
 
@@ -75,13 +91,14 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
+window.addEventListener("load", setFixedScrollingHeights);
 window.addEventListener("resize", debounce(setFixedScrollingHeights));
 
 //set initial inert state for navtoggle
-window.addEventListener("load", navReset());
+window.addEventListener("load", navReset);
 
 // fade in animation helper
-window.addEventListener("load", addFadeClass());
+window.addEventListener("load", addFadeClass);
 
 //reset inert state so that nav isn't broken upon window resize
 window.addEventListener("resize", debounce(navReset));
