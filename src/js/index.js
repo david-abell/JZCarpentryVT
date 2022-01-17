@@ -378,6 +378,11 @@ const handleSubmit = (e) => {
   e.preventDefault();
   let myForm = document.getElementById("form-container");
   let formData = new FormData(myForm);
+  const submittedEmail = formData.get("submitted-email");
+  const formSubject = submittedEmail
+    ? `New JZ Carpentry contact from ${submittedEmail}`
+    : `New JZ Carpentry contact`;
+  formData.set("subject", formSubject);
   console.log(...formData);
   fetch("/", {
     method: "POST",
