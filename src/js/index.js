@@ -102,7 +102,7 @@ window.addEventListener("resize", debounce(setFixedScrollingHeights));
 window.addEventListener("load", navReset);
 
 // fade in animation helper
-window.addEventListener("load", addFadeClass);
+// window.addEventListener("load", addFadeClass);
 
 //reset inert state so that nav isn't broken upon window resize
 window.addEventListener("resize", debounce(navReset));
