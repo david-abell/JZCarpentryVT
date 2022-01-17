@@ -28,6 +28,9 @@ let lastScroll = 0;
   //////////////////////////////////////////
 */
 function setFixedScrollingHeights() {
+  if (!document.querySelector("#scrolling-container")) {
+    return;
+  }
   const scrollingContainer = document
     .querySelector("#scrolling-container")
     .getBoundingClientRect();
