@@ -39,11 +39,6 @@
   --fs-small: clamp(1.625rem, 1.0491rem + 1.6026vw, 2.25rem);
   --fs-xsmall: clamp(0.8rem, 0.6157rem + 0.5128vw, 1rem);
   --fs-p: clamp(1rem, 0.712rem + 0.8013vw, 1.3125rem);
-  /* --fs-xlarge: 7.5rem;
-  --fs-large: 5.25rem;
-  --fs-medium: 4rem;
-  --fs-small: 2.25rem;
-  --fs-p: 1.3125rem; */
 
   /* top margin variable to prevent collapsing margins in <p>, <h*> tags, with .flow class
      redefine variable at location to override */
@@ -54,6 +49,7 @@
   --spacer-medium: calc((var(--spacer) * 2));
   --spacer-large: calc((var(--spacer) * 3));
   --spacer-xlarge: calc((var(--spacer) * 5));
+  --spacer-section: calc((var(--spacer) * 10));
 
   --border-radius: 0.25rem;
   --shadow: 12px 16px 10px rgba(82, 129, 82, 0.3);
@@ -115,7 +111,7 @@ a:hover {
 .article-wrapper,
 .hero,
 .title-group {
-  margin-bottom: var(--spacer-xlarge);
+  margin-bottom: var(--spacer-section);
 }
 
 .main-content > *,
@@ -138,7 +134,7 @@ a:hover {
   margin-bottom: 0;
 }
 .section-title {
-  margin-bottom: var(--spacer-xlarge);
+  margin-bottom: var(--spacer-section);
 }
 
 .section-subtitle {
@@ -620,7 +616,7 @@ a:hover {
 .scrolling-bg {
   --bg-min-height: calc(938 / 3);
   min-height: var(--bg-min-height);
-  max-height: 80rem;
+  max-height: 62.5rem;
   justify-content: center;
   padding: 21rem 0;
 }
