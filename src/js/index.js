@@ -398,5 +398,5 @@ const handleSubmit = (e) => {
 
 const submitAll = document.querySelector("#submit-all");
 if (submitAll) {
-  submitAll.addEventListener("submit", handleSubmit);
+  submitAll.addEventListener("click", handleSubmit);
 }
