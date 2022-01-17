@@ -77,11 +77,6 @@
           </hgroup>
           <div class="card-wrapper">
             <section class="card card-contact flow">
-              <!-- <div class="card-side">
-                    <img class="card-img" src="https://www.placecage.com/420/420" alt="employee portrait">
-                    <h3 class="card-name">Johannes ziegler</h3>
-                    <p class="card-position">Founder and president</p>
-                </div> -->
               <form
                 enctype="multipart/form-data"
                 id="form-container"
@@ -89,7 +84,20 @@
                 class="contact-form"
                 data-netlify="true"
                 name="netlify-contact"
+                netlify-honeypot="bot-field"
               >
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="New JZ Carpentry contact"
+                />
+                <input type="hidden" name="" />
+                <p class="hidden">
+                  <label
+                    >Do not fill this field if you are human:
+                    <input name="bot-field"
+                  /></label>
+                </p>
                 <div class="form-group">
                   <div class="label-group">
                     <label class="grid-left" for="submitted-first-name"

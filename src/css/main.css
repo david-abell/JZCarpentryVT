@@ -879,6 +879,15 @@ a:hover {
 /* .main-content #form-container {
   width: 60rem;
 } */
+
+/* #contact-form {
+  margin-top: var(--spacer-section);
+} */
+
+.hidden {
+  display: none;
+}
+
 .card-contact {
   background-color: var(--c-medium);
   display: flex;
