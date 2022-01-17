@@ -90,8 +90,9 @@ window.addEventListener("scroll", () => {
   }
   lastScroll = currentScroll;
 });
-
-window.addEventListener("load", setFixedScrollingHeights);
+if (scrollingBackground) {
+  window.addEventListener("load", setFixedScrollingHeights);
+}
 window.addEventListener("resize", debounce(setFixedScrollingHeights));
 
 //set initial inert state for navtoggle
@@ -373,12 +374,11 @@ function clearNav() {
 // //////////contact form netlify///////////
 // //////////////////////////////////////////
 
-document.querySelector("form").addEventListener("submit", handleSubmit);
-
 const handleSubmit = (e) => {
   e.preventDefault();
-  let myForm = document.getElementById("form");
+  let myForm = document.getElementById("form-container");
   let formData = new FormData(myForm);
+  console.log(...formData);
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -387,3 +387,5 @@ const handleSubmit = (e) => {
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
 };
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
