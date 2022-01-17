@@ -1,207 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JZ Carpentry</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Ovo|Quattrocento+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Rufina:700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/545eea5e46.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./css/inert.css" id="inert-style">
-    <link rel="stylesheet" href="./css/main.css">
+      href="https://fonts.googleapis.com/css?family=Neuton%7CWork+Sans%7COpen+Sans"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/545eea5e46.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="/node_modules/wicg-inert/dist/inert.min.js"
+    ></script>
+    <script type="module" src="./js/index.js"></script>
 
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/inert.css"
+      id="inert-style"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
 
-<body id="body" class="">
-
+  <body id="body" class="">
     <header class="page-header">
-        <nav class="navbar">
-            <button class="nav-toggle" id="nav-toggle" aria-haspopup="true" aria-expanded="false"
-                aria-controls="nav-menu">
-                <span class="screen-reader">Navigation</span>
-            </button>
-            <a class="company-logo" href="./index.html"><img src="./images/logo.svg" alt="JZ Carpentry home page"></a>
-            <ul class='nav-menu' id='nav-menu'>
-                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./bio.html">Our Team</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#">Our Process</a></li> -->
-                <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="screen-reader">Navigation</span>
+        </button>
+        <a class="company-logo" href="./index.html"
+          ><img src="./images/logo.svg" alt="JZ Carpentry home page"
+        /></a>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./bio.html">Our Team</a>
+          </li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#">Our Process</a></li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main class="main" id="main">
-        <div class="hero" id="landing-page">
-            <div class="hero-content-background">
-                <h1 class="hero-content">Making your space beautiful and&nbspfunctional</h1>
+      <div class="hero" id="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Making your space beautiful and&nbsp;functional
+          </h1>
+        </div>
+      </div>
+      <div class="main-content">
+        <article class="article-wrapper">
+          <h2 class="section-title">Kitchens</h2>
+          <div class="gallery" id="kitch-gallery">
+            <div class="gallery-item">
+              <img
+                data-bp="./images/gallery/kitchens/kitch001.webp"
+                src="./images/gallery/kitchens/thumbs/kitch001-thumb.webp"
+                alt=""
+              />
             </div>
-        </div>
+            <div class="gallery-item">
+              <img
+                data-bp="./images/gallery/kitchens/kitch002.webp"
+                src="./images/gallery/kitchens/thumbs/kitch002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                data-bp="./images/gallery/kitchens/kitch003.webp"
+                src="./images/gallery/kitchens/thumbs/kitch003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                data-bp="./images/gallery/kitchens/kitch004.webp"
+                src="./images/gallery/kitchens/thumbs/kitch004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch005.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch005-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch006.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch006-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch007.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch007-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch008.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch008-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch009.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch009-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch010.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch010-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch011.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch011-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch012.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch012-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch013.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch013-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch014.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch014-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/kitchens/kitch015.webp"
+                data-src="./images/gallery/kitchens/thumbs/kitch015-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
+        <article class="article-wrapper">
+          <h2 class="section-title">Bathrooms</h2>
 
-        <header class="section-header">
-            <h2 class="section-title">Explore our portfolio</h1>
-                <div class="section-subtitle">Practical, comfortable, healthy, livable spaces.</div>
-        </header>
+          <div class="gallery" id="bath-gallery">
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath001.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath001-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath002.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath003.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath004.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath005.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath005-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath006.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath006-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath007.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath007-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath008.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath008-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath009.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath009-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath010.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath010-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath011.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath011-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath012.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath012-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath013.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath013-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath014.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath014-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath015.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath015-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath016.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath016-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath017.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath017-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath018.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath018-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/bathrooms-custom-tiling/bath019.webp"
+                data-src="images/gallery/bathrooms-custom-tiling/thumbs/bath019-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
+        <article class="article-wrapper">
+          <h2 class="section-title">Living spaces</h2>
 
-        <header class="section-header">
-            <h2 class="section-title">Kitchens</h1>
-                <!-- <div class="section-subtitle">Air BNBs, offices and relaxing spaces</div> -->
-        </header>
+          <div class="gallery" id="spc-gallery">
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/living-work-spaces/spc001.webp"
+                data-src="images/gallery/living-work-spaces/thumbs/spc001-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/living-work-spaces/spc002.webp"
+                data-src="images/gallery/living-work-spaces/thumbs/spc002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/living-work-spaces/spc003.webp"
+                data-src="images/gallery/living-work-spaces/thumbs/spc003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/living-work-spaces/spc004.webp"
+                data-src="images/gallery/living-work-spaces/thumbs/spc004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/living-work-spaces/spc005.webp"
+                data-src="images/gallery/living-work-spaces/thumbs/spc005-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
 
-        <div class="gallery" id="kitch-gallery">
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch001.jpg" src="images/gallery/kitchens/thumbs/kitch001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch002.jpg" src="images/gallery/kitchens/thumbs/kitch002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch003.jpg" src="images/gallery/kitchens/thumbs/kitch003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch004.jpg" src="images/gallery/kitchens/thumbs/kitch004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch005.jpg" src="images/gallery/kitchens/thumbs/kitch005-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch006.jpg" src="images/gallery/kitchens/thumbs/kitch006-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch007.jpg" src="images/gallery/kitchens/thumbs/kitch007-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch008.jpg" src="images/gallery/kitchens/thumbs/kitch008-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch009.jpg" src="images/gallery/kitchens/thumbs/kitch009-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch010.jpg" src="images/gallery/kitchens/thumbs/kitch010-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch011.jpg" src="images/gallery/kitchens/thumbs/kitch011-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch012.jpg" src="images/gallery/kitchens/thumbs/kitch012-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch013.jpg" src="images/gallery/kitchens/thumbs/kitch013-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch014.jpg" src="images/gallery/kitchens/thumbs/kitch014-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/kitchens/kitch015.jpg" src="images/gallery/kitchens/thumbs/kitch015-thumb.jpg" alt=""></div>
-        </div>
+        <article class="article-wrapper">
+          <hgroup class="title-group">
+            <h2 class="section-title">New construction</h2>
+            <h3 class="section-subtitle">
+              Tiny homes, offices and relaxing spaces
+            </h3>
+          </hgroup>
 
+          <div class="gallery" id="new-tiny-gallery">
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home001.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home001-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home002.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home003.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home004.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home005.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home005-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home006.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home006-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home007.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home007-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home008.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home008-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home009.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home009-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/new-tiny-home/home010.webp"
+                data-src="images/gallery/new-tiny-home/thumbs/home010-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
 
-        <header class="section-header">
-            <h2 class="section-title">Bathrooms</h1>
-                <!-- <div class="section-subtitle">Air BNBs, offices and relaxing spaces</div> -->
-        </header>
-
-        <div class="gallery" id="bath-gallery">
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath001.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath002.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath003.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath004.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath005.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath005-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath006.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath006-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath007.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath007-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath008.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath008-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath009.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath009-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath010.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath010-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath011.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath011-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath012.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath012-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath013.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath013-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath014.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath014-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath015.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath015-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath016.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath016-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath017.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath017-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath018.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath018-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/bathrooms-custom-tiling/bath019.jpg" src="images/gallery/bathrooms-custom-tiling/thumbs/bath019-thumb.jpg" alt=""></div>
-        </div>
-        
-        <header class="section-header">
-            <h2 class="section-title">Living spaces</h1>
-                <!-- <div class="section-subtitle">Air BNBs, offices and relaxing spaces</div> -->
-        </header>
-
-        <div class="gallery" id="spc-gallery">
-            <div class="gallery-item"><img data-bp="gallery/living-work-spaces/spc001.jpg" src="images/gallery/living-work-spaces/thumbs/spc001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/living-work-spaces/spc002.jpg" src="images/gallery/living-work-spaces/thumbs/spc002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/living-work-spaces/spc003.jpg" src="images/gallery/living-work-spaces/thumbs/spc003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/living-work-spaces/spc004.jpg" src="images/gallery/living-work-spaces/thumbs/spc004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/living-work-spaces/spc005.jpg" src="images/gallery/living-work-spaces/thumbs/spc005-thumb.jpg" alt=""></div>
-        </div>
-
-
-        <header class="section-header">
-            <h2 class="section-title">New construction</h1>
-                <div class="section-subtitle">Tiny homes, offices and relaxing spaces</div>
-        </header>
-
-        <div class="gallery" id="new-tiny-gallery">
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home001.jpg" src="images/gallery/new-tiny-home/thumbs/home001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home002.jpg" src="images/gallery/new-tiny-home/thumbs/home002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home003.jpg" src="images/gallery/new-tiny-home/thumbs/home003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home004.jpg" src="images/gallery/new-tiny-home/thumbs/home004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home005.jpg" src="images/gallery/new-tiny-home/thumbs/home005-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home006.jpg" src="images/gallery/new-tiny-home/thumbs/home006-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home007.jpg" src="images/gallery/new-tiny-home/thumbs/home007-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home008.jpg" src="images/gallery/new-tiny-home/thumbs/home008-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home009.jpg" src="images/gallery/new-tiny-home/thumbs/home009-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/new-tiny-home/home010.jpg" src="images/gallery/new-tiny-home/thumbs/home010-thumb.jpg" alt=""></div>
-        </div>
-        
-
-        <header class="section-header">
-            <h2 class="section-title">Custom woodwork</h1>
-                <div class="section-subtitle">Handrails, functional, and decorative nooks</div>
-        </header>
-
-        <div class="gallery" id="woodwork-gallery">
-            <div class="gallery-item"><img data-bp="gallery/woodwork-nooks/cust001.jpg" src="images/gallery/woodwork-nooks/thumbs/cust001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/woodwork-nooks/cust002.jpg" src="images/gallery/woodwork-nooks/thumbs/cust002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/woodwork-nooks/cust003.jpg" src="images/gallery/woodwork-nooks/thumbs/cust003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/woodwork-nooks/cust004.jpg" src="images/gallery/woodwork-nooks/thumbs/cust004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/woodwork-nooks/cust005.jpg" src="images/gallery/woodwork-nooks/thumbs/cust005-thumb.jpg" alt=""></div>
-        </div>
-        
-        <header class="section-header">
-            <h2 class="section-title">Exteriors</h1>
-                <!-- <div class="section-subtitle">Air BNBs, offices and relaxing spaces</div> -->
-        </header>
-
-        <div class="gallery" id="ext-gallery">
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext001.jpg" src="images/gallery/exteriors/thumbs/ext001-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext002.jpg" src="images/gallery/exteriors/thumbs/ext002-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext003.jpg" src="images/gallery/exteriors/thumbs/ext003-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext004.jpg" src="images/gallery/exteriors/thumbs/ext004-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext005.jpg" src="images/gallery/exteriors/thumbs/ext005-thumb.jpg" alt=""></div>
-            <div class="gallery-item"><img data-bp="gallery/exteriors/ext006.jpg" src="images/gallery/exteriors/thumbs/ext006-thumb.jpg" alt=""></div>
-        </div>
-
-
-        </div>
+        <article class="article-wrapper">
+          <hgroup class="title-group">
+            <h2 class="section-title">Custom woodwork</h2>
+            <h3 class="section-subtitle">
+              Handrails, functional, and decorative nooks
+            </h3>
+          </hgroup>
+          <div class="gallery" id="woodwork-gallery">
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/woodwork-nooks/cust001.webp"
+                data-src="images/gallery/woodwork-nooks/thumbs/cust001-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/woodwork-nooks/cust002.webp"
+                data-src="images/gallery/woodwork-nooks/thumbs/cust002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/woodwork-nooks/cust003.webp"
+                data-src="images/gallery/woodwork-nooks/thumbs/cust003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/woodwork-nooks/cust004.webp"
+                data-src="images/gallery/woodwork-nooks/thumbs/cust004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/woodwork-nooks/cust005.webp"
+                data-src="images/gallery/woodwork-nooks/thumbs/cust005-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
+        <article class="article-wrapper">
+          <h2 class="section-title">Exteriors</h2>
+          <div class="gallery" id="ext-gallery">
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext001.webp"
+                data-src="images/gallery/exteriors/thumbs/ext001-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext002.webp"
+                data-src="images/gallery/exteriors/thumbs/ext002-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext003.webp"
+                data-src="images/gallery/exteriors/thumbs/ext003-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext004.webp"
+                data-src="images/gallery/exteriors/thumbs/ext004-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext005.webp"
+                data-src="images/gallery/exteriors/thumbs/ext005-thumb.webp"
+                alt=""
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                class="lozad"
+                data-bp="./images/gallery/exteriors/ext006.webp"
+                data-src="images/gallery/exteriors/thumbs/ext006-thumb.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
+      </div>
     </main>
     <footer class="footer" id="footer">
-        <div class="footer-wrapper">
-            <h4 class="footer-title">Get in touch</h4>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
-                        <i class="icon fas fa-map-marker-alt"></i><span class="screen-reader">Location</span>Burlington
-                        VT
-                    </a>
-                </li>
-                <li class="footer-item">
-                    <a href="tel:802-598-8070" class="footer-link">
-                        <i class="icon fas fa-phone-alt"></i><span class="screen-reader">Phone number</span>802-598-8070
-                    </a>
-                </li>
-                <li class="footer-item">
-                    <a href="./contact.html" class="footer-link">
-                        <i class="icon fas fa-envelope"></i>Email
-                    </a>
-                </li>
-            </ul>
-            <div class="credit">
-                <p><span>&copy;</span><span id="copyright-year"></span> JZ&nbspCarpentry LLC</p>
-                <p>Web design by David Abell</p>
-            </div>
+      <div class="footer-wrapper">
+        <h2 class="footer-title">Get in touch</h2>
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
+              <i class="icon fas fa-map-marker-alt"></i
+              ><span class="screen-reader">Location</span>Burlington VT
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="tel:802-598-8070" class="footer-link">
+              <i class="icon fas fa-phone-alt"></i
+              ><span class="screen-reader">Phone number</span>802-598-8070
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="./contact.html" class="footer-link">
+              <i class="icon fas fa-envelope"></i>Email
+            </a>
+          </li>
+        </ul>
+        <div class="credit">
+          <p>
+            <span>&copy;</span
+            ><span id="copyright-year"></span> JZ&nbsp;Carpentry LLC
+          </p>
+          <p>Web design by David Abell</p>
         </div>
-        <div class="floating-wrapper" id="portfolio-floating-wrapper">
-            <ul class="floating-list">
-                <!-- <li class="floating-item"><a href="./portfolio.html" class="floating-link">our work</a></li> -->
-                <li class="floating-item"><a href="./contact.html" class="floating-link">Contact us</a></li>
-            </ul>
-        </div>
+      </div>
+      <div class="floating-wrapper" id="portfolio-floating-wrapper">
+        <ul class="floating-list">
+          <!-- <li class="floating-item"><a href="./portfolio.html" class="floating-link">our work</a></li> -->
+          <li class="floating-item">
+            <a href="./contact.html" class="floating-link">Contact us</a>
+          </li>
+        </ul>
+      </div>
     </footer>
-
-    <script
-        src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Map,Set,Element.prototype.matches,Node.prototype.contains">
-    </script>
-    <!-- <script src="./js/inert.js"></script> -->
-    <script src="./js/index.js"></script>
-
-</body>
-
+  </body>
 </html>

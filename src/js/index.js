@@ -1,31 +1,44 @@
 import "wicg-inert";
-import BigPicture from 'bigpicture';
+import lozad from "lozad";
+import BigPicture from "bigpicture";
 import Dropzone from "dropzone";
 import "dropzone/dist/dropzone.css";
 
-document.body.classList.add('js');
+document.body.classList.add("js");
 
-
-const main = document.querySelector('#main');
-const footer = document.querySelector('#footer');
-const active = "is-active";
+const main = document.querySelector("#main");
+const footer = document.querySelector("#footer");
+const isActive = "is-active";
 const body = document.body;
 
-let navToggle = document.querySelector('#nav-toggle');
+let navToggle = document.querySelector("#nav-toggle");
 let navToggleState = 0;
-let pageHeader = document.querySelector('.page-header');
-let navMenu = document.querySelector('#nav-menu');
-let heroContent = document.querySelector('.hero-content-background');
+let pageHeader = document.querySelector(".page-header");
+let navMenu = document.querySelector("#nav-menu");
+let heroContent = document.querySelector(".hero-content");
+let scrollingBackground = document.querySelector("#scrolling-bg");
 
 const scrollDown = "scroll-down";
 const scrollUp = "scroll-up";
 let lastScroll = 0;
 
-
+function setFixedScrollingHeights() {
+  const scrollingContainer = document.querySelector("#scrolling-container");
+  const calcScrollingHeight =
+    scrollingContainer.getBoundingClientRect().height +
+    scrollingContainer["children"][1].getBoundingClientRect().height;
+  scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
+  scrollingBackground.style.maxHeight = calcScrollingHeight.toString() + "px";
+  scrollingBackground.style.minHeight = calcScrollingHeight.toString() + "px";
+  console.log(scrollingBackground.style.maxHeight);
+  console.log(calcScrollingHeight);
+}
 // //////////////////////////////////////////
 // ///////////listeners & events/////////////
 // //////////////////////////////////////////
 
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
 
 //scroll to show/hide navigation
 //https://webdesign.tutsplus.com/tutorials/how-to-hide-reveal-a-sticky-header-on-scroll-with-javascript--cms-33756
@@ -38,7 +51,10 @@ window.addEventListener("scroll", () => {
     return;
   }
 
-  if (currentScroll + window.innerHeight >= document.body.scrollHeight - footerHeight) {
+  if (
+    currentScroll + window.innerHeight >=
+    document.body.scrollHeight - footerHeight
+  ) {
     body.classList.remove(scrollDown);
     return;
   }
@@ -48,7 +64,10 @@ window.addEventListener("scroll", () => {
     body.classList.remove(scrollUp);
     body.classList.add(scrollDown);
     navReset();
-  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+  } else if (
+    currentScroll < lastScroll &&
+    body.classList.contains(scrollDown)
+  ) {
     // up
     body.classList.remove(scrollDown);
     body.classList.add(scrollUp);
@@ -56,70 +75,68 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
-
+window.addEventListener("resize", debounce(setFixedScrollingHeights));
 
 //set initial inert state for navtoggle
-document.addEventListener("load", navReset());
+window.addEventListener("load", navReset());
 
 // fade in animation helper
-window.addEventListener('load', addFadeClass());
+window.addEventListener("load", addFadeClass());
 
 //reset inert state so that nav isn't broken upon window resize
-window.addEventListener('resize', debounce(navReset));
+window.addEventListener("resize", debounce(navReset));
 
 //log current focused element to track inert functionality
 // document.addEventListener('focusin', function () {
 //   console.log('focused: ', document.activeElement)
 // }, true);
 
-
 //opening nav menu
 navToggle.addEventListener("click", menuToggle);
 
 //closing nav menu either with events targeting hamburger, links, or outside nav area
-document.addEventListener("click", function (e) {
-  if (pageHeader != e.target &&
-    !pageHeader.contains(e.target) &&
-    navMenu.classList.contains(active)) {
-    closeNav();
-  }
-}, false);
+document.addEventListener(
+  "click",
+  function (e) {
+    if (
+      pageHeader != e.target &&
+      !pageHeader.contains(e.target) &&
+      navMenu.classList.contains(isActive)
+    ) {
+      closeNav();
+    }
+  },
+  false
+);
 
 //sets footer current date
-window.addEventListener('load', (
-  function () {
-    document.getElementById('copyright-year').appendChild(
-      document.createTextNode(
-        new Date().getFullYear()
-      )
-    );
-  }
-));
+window.addEventListener("load", function () {
+  document
+    .getElementById("copyright-year")
+    .appendChild(document.createTextNode(new Date().getFullYear()));
+});
 
 // /////////////////////////////////////////
 // //////Nav and Inert state functions//////
 // /////////////////////////////////////////
 
-
 function addInertStyle() {
   const containsInert = document.querySelectorAll("[inert]");
-  containsInert.forEach(el => {
-    el.classList.add('is-not-active');
+  containsInert.forEach((el) => {
+    el.classList.add("is-not-active");
   });
 }
 
 function removeInertStyle() {
-  const notActive = document.querySelectorAll('.is-not-active');
-  notActive.forEach(el => {
-    el.classList.remove('is-not-active');
+  const notActive = document.querySelectorAll(".is-not-active");
+  notActive.forEach((el) => {
+    el.classList.remove("is-not-active");
   });
 }
 
-
 function addFadeClass() {
-  heroContent.classList.add('fade-in');
-  pageHeader.classList.add('fade-in');
-
+  heroContent.classList.add("fade-in");
+  pageHeader.classList.add("fade-in");
 }
 
 // Timer for window onresize event listener so it doesn't continuesly fire during resize events
@@ -141,7 +158,7 @@ function menuToggle() {
 }
 
 function navReset() {
-  if (getComputedStyle(navToggle).display === 'block') {
+  if (getComputedStyle(navToggle).display === "block") {
     closeNav();
   }
   clearNav();
@@ -151,21 +168,21 @@ function openNav() {
   main.inert = true;
   footer.inert = true;
   navMenu.inert = false;
-  navMenu.classList.add(active);
-  navToggle.setAttribute('aria-expanded', 'true');
-  navToggle.classList.add(active);
+  navMenu.classList.add(isActive);
+  navToggle.setAttribute("aria-expanded", "true");
+  navToggle.classList.add(isActive);
   navToggleState = 1;
   addInertStyle();
 }
 
 //sets/resets document inert state when nav toggle is present
 function closeNav() {
-  navToggle.setAttribute('aria-expanded', 'false');
-  navMenu.classList.remove(active);
+  navToggle.setAttribute("aria-expanded", "false");
+  navMenu.classList.remove(isActive);
   main.inert = false;
   footer.inert = false;
   navMenu.inert = true;
-  navToggle.classList.remove(active);
+  navToggle.classList.remove(isActive);
   navToggleState = 0;
   removeInertStyle();
 }
@@ -175,9 +192,9 @@ function clearNav() {
   main.inert = false;
   footer.inert = false;
   navMenu.inert = false;
-  navMenu.classList.remove(active);
-  navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.classList.remove(active);
+  navMenu.classList.remove(isActive);
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.classList.remove(isActive);
   removeInertStyle();
 }
 
@@ -185,32 +202,30 @@ function clearNav() {
 // ///////////Gallery controls//////////////
 // /////////////////////////////////////////
 
-;
 (function () {
-  const imageLinks = document.querySelectorAll('.gallery .gallery-item')
-  imageLinks.forEach(el => {
-    el.addEventListener('click', function (e) {
-      e.preventDefault()
+  const imageLinks = document.querySelectorAll(".gallery .gallery-item");
+  imageLinks.forEach((el) => {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
       BigPicture({
         el: e.target,
-        gallery: '.gallery',
+        gallery: ".gallery",
         animationStart: function () {
           // executed immediately before open animation starts
-          document.documentElement.style.overflowY = 'hidden'
-          document.body.style.overflowY = 'scroll'
-          addInertStyle()
+          document.documentElement.style.overflowY = "hidden";
+          document.body.style.overflowY = "scroll";
+          addInertStyle();
         },
         onClose: function () {
           // executed immediately after close animation finishes
-          document.documentElement.style.overflowY = 'auto'
-          document.body.style.overflowY = 'auto'
-          removeInertStyle()
+          document.documentElement.style.overflowY = "auto";
+          document.body.style.overflowY = "auto";
+          removeInertStyle();
         },
-      })
-    })
-  })
-})()
-
+      });
+    });
+  });
+})();
 
 // //////////////////////////////////////////
 // //////////contact form dropzone///////////
@@ -223,14 +238,14 @@ let previewZone;
 let myDropzone;
 let contactForm;
 
-if (document.querySelector('#drop-area')) {
-  contactForm = document.querySelector('#contact-form');
+if (document.querySelector("#drop-area")) {
+  contactForm = document.querySelector("#contact-form");
   myDropzone = new Dropzone("#drop-area", {
     // url: "contact.html",
     url: "https://5xd90nuti9.execute-api.eu-west-1.amazonaws.com/development/multipart",
     headers: {
-      'Cache-Control': null,
-      'X-Requested-With': null
+      "Cache-Control": null,
+      "X-Requested-With": null,
     },
     paramName: "files",
     autoProcessQueue: false,
@@ -239,11 +254,11 @@ if (document.querySelector('#drop-area')) {
     maxFiles: 100,
     maxFilesize: 6, // MB
     dictDefaultMessage: "To upload files, click or drag and drop here",
-    // transformFile: function(file, done) { 
+    // transformFile: function(file, done) {
 
     // },
     init: function () {
-      const submitAll = document.querySelector("#submit-all")
+      const submitAll = document.querySelector("#submit-all");
       // tell Dropzone to process file queue.
       submitAll.addEventListener("click", function (e) {
         e.preventDefault();
@@ -251,7 +266,6 @@ if (document.querySelector('#drop-area')) {
         console.log(myDropzone);
         myDropzone.processQueue();
       });
-
 
       var myDropzone = this;
       this.on("addedfile", function (file) {
@@ -276,34 +290,27 @@ if (document.querySelector('#drop-area')) {
         // myDropzone.options.params.body = data;
         // formData.append("body", data)
         for (let key in data) {
-          formData.append(key, data[key])
+          formData.append(key, data[key]);
         }
-        console.log(Array.from(formData.entries()))
-        console.log(files)
+        console.log(Array.from(formData.entries()));
+        console.log(files);
         // console.log(Array.from(contactData))
 
         // Hide the success button or the complete form.
-
-
       });
       this.on("successmultiple", function (files, response) {
         // Gets triggered when the files have successfully been sent.
         // Redirect user or notify of success.
         console.log(response.message);
-
       });
       this.on("errormultiple", function (files, response) {
         // Gets triggered when there was an error sending the files.
         // Maybe show form again, and notify user of error
         console.error("error:", response.message);
-
       });
-
-    }
+    },
   });
-
 }
-
 
 // still to be combined with dropzone
 // const form = document.getElementById("form");
