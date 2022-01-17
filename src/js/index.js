@@ -393,6 +393,7 @@ const handleSubmit = (e) => {
     body: new URLSearchParams(formData).toString(),
   })
     .then(() => console.log("Form successfully submitted"))
+    .then(() => window.location("form-submission.html"))
     .catch((error) => alert(error));
 };
 
