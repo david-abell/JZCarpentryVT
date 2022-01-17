@@ -378,7 +378,7 @@ function clearNav() {
 // //////////////////////////////////////////
 
 const handleSubmit = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   let myForm = document.getElementById("form-container");
   let formData = new FormData(myForm);
   const submittedEmail = formData.get("submitted-email");
