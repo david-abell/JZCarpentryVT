@@ -396,4 +396,7 @@ const handleSubmit = (e) => {
     .catch((error) => alert(error));
 };
 
-document.querySelector("form").addEventListener("submit", handleSubmit);
+const submitAll = document.querySelector("#submit-all");
+if (submitAll) {
+  submitAll.addEventListener("submit", handleSubmit);
+}
