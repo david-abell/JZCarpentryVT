@@ -410,7 +410,7 @@ a:hover {
 .hero {
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
     top 0% left 10% / cover no-repeat
-      url(../images/banners/20201022_111032_cropped.jpg);
+      url(../images/banners/20201022_111032_cropped.webp);
   /* background-repeat: no-repeat;
   background-size: cover; */
 }
@@ -632,7 +632,7 @@ a:hover {
   width: 100%;
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
     top 0% left 10% / cover no-repeat
-      url(../images/banners/20201022_111032_cropped.jpg);
+      url(../images/banners/20201022_111032_cropped.webp);
   /* background-size: auto 100%; */
   background-attachment: fixed;
 }
