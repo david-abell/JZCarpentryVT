@@ -166,6 +166,9 @@ a:hover {
   .hero {
     margin-bottom: var(--spacer-medium);
   }
+  .section-title {
+    margin-bottom: var(--spacer-xlarge);
+  }
   /* .card:not(:last-child) {
     margin-bottom: var(--spacer-large);
   } */
@@ -618,7 +621,7 @@ a:hover {
   min-height: var(--bg-min-height);
   max-height: 62.5rem;
   justify-content: center;
-  padding: 21rem 0;
+  /* padding: 21rem 0; */
 }
 
 .scrolling-bg::before {
@@ -841,8 +844,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
-    gap: var(--spacer-xlarge);
+    justify-content: space-evenly;
+    gap: 0;
+    height: 100%;
   }
 
   .cardless {
