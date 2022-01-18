@@ -59,7 +59,7 @@ observer.observe();
   https://webdesign.tutsplus.com/tutorials/how-to-hide-reveal-a-sticky-header-on-scroll-with-javascript--cms-33756
 */
 
-window.addEventListener("scroll", debounce(scrollingNav));
+window.addEventListener("scroll", scrollingNav);
 
 if (scrollingBackground) {
   window.addEventListener("load", setFixedScrollingHeights);
@@ -187,7 +187,7 @@ function clearNav() {
 }
 
 function scrollingNav() {
-  const currentScroll = window.pageYOffset;
+  const currentScroll = window.scrollY;
   const footerHeight = footer.offsetHeight;
 
   if (currentScroll <= 0) {
