@@ -59,38 +59,7 @@ observer.observe();
   https://webdesign.tutsplus.com/tutorials/how-to-hide-reveal-a-sticky-header-on-scroll-with-javascript--cms-33756
 */
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-  const footerHeight = footer.offsetHeight;
-
-  if (currentScroll <= 0) {
-    body.classList.remove(scrollUp);
-    return;
-  }
-
-  if (
-    currentScroll + window.innerHeight >=
-    document.body.scrollHeight - footerHeight
-  ) {
-    body.classList.remove(scrollDown);
-    return;
-  }
-
-  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
-    // down
-    body.classList.remove(scrollUp);
-    body.classList.add(scrollDown);
-    navReset();
-  } else if (
-    currentScroll < lastScroll &&
-    body.classList.contains(scrollDown)
-  ) {
-    // up
-    body.classList.remove(scrollDown);
-    body.classList.add(scrollUp);
-  }
-  lastScroll = currentScroll;
-});
+window.addEventListener("scroll", scrollingNav);
 
 if (scrollingBackground) {
   window.addEventListener("load", setFixedScrollingHeights);
@@ -215,6 +184,39 @@ function clearNav() {
   navToggle.setAttribute("aria-expanded", "false");
   navToggle.classList.remove(isActive);
   removeInertStyle();
+}
+
+function scrollingNav() {
+  const currentScroll = window.scrollY;
+  const footerHeight = footer.offsetHeight;
+
+  if (currentScroll <= 0) {
+    body.classList.remove(scrollUp);
+    return;
+  }
+
+  if (
+    currentScroll + window.innerHeight >=
+    document.body.scrollHeight - footerHeight
+  ) {
+    body.classList.remove(scrollDown);
+    return;
+  }
+
+  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+    // down
+    body.classList.remove(scrollUp);
+    body.classList.add(scrollDown);
+    navReset();
+  } else if (
+    currentScroll < lastScroll &&
+    body.classList.contains(scrollDown)
+  ) {
+    // up
+    body.classList.remove(scrollDown);
+    body.classList.add(scrollUp);
+  }
+  lastScroll = currentScroll;
 }
 
 /*
