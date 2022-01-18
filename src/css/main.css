@@ -873,8 +873,8 @@ a:hover {
     min-height: 42rem;
   } */
   .article-wrapper {
-    padding-left: var(--spacer-medium);
-    padding-right: var(--spacer-medium);
+    padding-left: var(--spacer);
+    padding-right: var(--spacer);
   }
 }
 
@@ -907,6 +907,7 @@ a:hover {
   position: relative;
   width: 100%;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .contact-form {
@@ -1056,7 +1057,7 @@ a:hover {
 
 @media (max-width: 575px) {
   .card-contact {
-    padding: var(--spacer-medium);
+    padding: var(--spacer);
   }
 
   /* .grid-left {
