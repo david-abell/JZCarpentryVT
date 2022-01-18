@@ -46,9 +46,6 @@ function setFixedScrollingHeights() {
   scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
   // scrollingBackground.style.maxHeight = calcScrollingHeight.toString() + "px";
   // scrollingBackground.style.minHeight = calcScrollingHeight.toString() + "px";
-  console.log(scrollingContainer);
-  console.log(scrollingContainerWidth);
-  console.log(window.innerHeight);
 }
 
 /* 
@@ -386,14 +383,14 @@ const handleSubmit = (e) => {
     ? `New JZ Carpentry contact from ${submittedEmail}`
     : `New JZ Carpentry contact`;
   formData.set("subject", formSubject);
-  const redirectUrl = new URL("../form-submission.html", import.meta.url);
+  let redirectUrl = new URL("../form-submission.html", import.meta.url);
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
   })
     .then(() => console.log("Form successfully submitted"))
-    .then(() => window.location.replace(redirectUrl))
+    .then(() => (window.location.href = redirectUrl))
     .catch((error) => alert(error));
 };
 
