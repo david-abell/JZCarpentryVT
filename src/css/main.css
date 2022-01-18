@@ -1236,10 +1236,6 @@ a:hover {
   align-items: center;
 }
 
-#portfolio-floating-wrapper .floating-list {
-  grid-template-columns: 1fr;
-}
-
 .floating-item {
   background-color: var(--c-dark);
   /* opacity: .9; */
