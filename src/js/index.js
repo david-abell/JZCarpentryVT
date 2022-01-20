@@ -129,11 +129,11 @@ function addFadeClass() {
   Timer for window onresize event listener so it doesn't continuesly fire during resize events
   Source: Jonas Wilms, https://stackoverflow.com/questions/45905160/javascript-on-window-resize-end
 */
-function debounce(func) {
+function debounce(func, delay = 100) {
   let timer;
   return function (event) {
     if (timer) clearTimeout(timer);
-    timer = setTimeout(func, 100, event);
+    timer = setTimeout(func, delay, event);
   };
 }
 
@@ -256,8 +256,105 @@ function scrollingNav() {
   ////////////////////////////////////////////
 */
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+function showError(input, message) {
+  const formField = input.parentElement;
+  if (!formField.classList.contains("label-group")) {
+    return;
+  }
+  const messageDisplay = formField.querySelector(".form-message");
+  if (!messageDisplay) {
+    return;
+  }
+
+  formField.classList.remove("success");
+  formField.classList.add("error");
+  messageDisplay.innerText = message;
+  addFormInputListener(input);
+}
+
+function showSuccess(input) {
+  const formField = input.parentElement;
+  const messageDisplay = formField.querySelector(".form-message");
+  if (!messageDisplay) {
+    return;
+  }
+
+  formField.classList.add("success");
+  formField.classList.remove("error");
+  messageDisplay.innerText = "";
+}
+
+const isValueEmpty = (el) => (el.value.trim() === "" ? true : false);
+
+function checkRequiredInput(input) {
+  let result = false;
+  if (isValueEmpty(input)) {
+    return showError(input, "required field must not be empty");
+  }
+  showSuccess(input);
+  result = true;
+  return result;
+}
+
+function addFormInputListener(input) {
+  const inputId = input.id;
+  if (!inputId) {
+    return;
+  }
+  return input.addEventListener(
+    "input",
+    debounce(function (inputId) {
+      switch (inputId) {
+        default:
+          checkRequiredInput(input);
+      }
+    }, 500)
+  );
+}
+
+function validateFormFields(event) {
+  let result = true;
+  const formElements = [...event.currentTarget.elements];
+
+  formElements.forEach((el) => {
+    if (!el.required) {
+      return;
+    }
+    const elId = el.id;
+    switch (elId) {
+      case "test":
+        break;
+
+      default:
+        if (!checkRequiredInput(el)) {
+          result = false;
+        }
+        break;
+    }
+  });
+  // const submittedFirstName = document.querySelector("#submitted-first-name");
+  // const submittedLastName = document.querySelector("#submitted-last-name");
+  // const submittedPhone = document.querySelector("#submitted-phone");
+  // const submittedEmail = document.querySelector("#submitted-email");
+  // const submittedDescription = document.querySelector("#submitted-description");
+
+  if (!event.currentTarget.getElementsByClassName("error")[0]) {
+    result = true;
+  }
+
+  return result;
+}
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // console.log(Object.getOwnPropertyNames(event.currentTarget.elements));
+
+  const isValidForm = validateFormFields(event);
+  console.log(isValidForm);
+  if (isValidForm === false) {
+    return;
+  }
+
   let myForm = document.getElementById("form-container");
   let formData = new FormData(myForm);
   const submittedEmail = formData.get("submitted-email");
@@ -277,6 +374,10 @@ const handleSubmit = (e) => {
 };
 
 const submitAll = document.querySelector("#form-container");
+let areFormErrors;
+console.log(areFormErrors);
 if (submitAll) {
+  submitAll.setAttribute("novalidate", "");
   submitAll.addEventListener("submit", handleSubmit);
+  areFormErrors = submitAll.getElementsByClassName("error")[0] ? true : false;
 }

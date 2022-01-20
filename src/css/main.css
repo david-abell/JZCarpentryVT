@@ -18,6 +18,8 @@
   /*Accent text for offwhite and green*/
   --c-dark-accent: #a54e15;
   --c-light-accent: #fb6d0e;
+  --c-error: #ff0c0c;
+  --c-success: rgb(23 228 0);
   /*Hero banner background, used for text legibility over images*/
   --c-transparent: rgba(0, 0, 0, 0.6);
   /*Placeholder text color*/
@@ -894,7 +896,7 @@ a:hover {
 }
 
 .card-contact {
-  background-color: var(--c-medium);
+  background-color: var(--c-white);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -903,11 +905,12 @@ a:hover {
   /* border-radius: var(--border-radius); */
   padding: var(--spacer-xlarge);
   text-align: left;
-  color: var(--c-white);
+  color: var(--c-dark);
   position: relative;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  box-shadow: none;
 }
 
 .contact-form {
@@ -964,11 +967,34 @@ a:hover {
   font-family: var(--ff-p-sans);
   border-radius: var(--border-radius);
   /* border-color: var(--c-light-accent); */
-  border-width: 5px;
-  border-style: none;
+  border-width: 3px;
+  border-color: var(--c-medium);
+  border-style: solid;
   padding: var(--spacer);
   background-color: var(--c-white);
   color: var(--c-dark);
+}
+
+.label-group .card-caption {
+  color: var(--c-dark);
+}
+
+.label-group .form-message {
+  color: var(--c-medium);
+  font-style: italic;
+  margin-top: calc(-1.5 * var(--spacer));
+  margin-bottom: var(--spacer);
+}
+
+.label-group.error .form-message {
+  color: var(--c-error);
+}
+
+.label-group.error .form-input {
+  border-color: var(--c-error);
+}
+.label-group.success .form-input {
+  border-color: var(--c-success);
 }
 
 .form-input:focus {
@@ -984,7 +1010,6 @@ a:hover {
 
 .contact-form button {
   cursor: pointer;
-  border: none;
   border-radius: var(--border-radius);
   color: var(--c-dark);
   font-family: var(--ff-sans);
