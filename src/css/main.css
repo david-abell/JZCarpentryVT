@@ -979,7 +979,9 @@ a:hover {
   color: var(--c-dark);
 }
 
-.label-group .form-message {
+.label-group .form-message,
+.form-error {
+  display: none;
   color: var(--c-medium);
   font-style: italic;
   margin-top: calc(-1.5 * var(--spacer));
@@ -987,6 +989,7 @@ a:hover {
 }
 
 .label-group.error .form-message {
+  display: block;
   color: var(--c-error);
 }
 
@@ -994,6 +997,7 @@ a:hover {
   border-color: var(--c-error);
 }
 .label-group.success .form-input {
+  display: block;
   border-color: var(--c-success);
 }
 

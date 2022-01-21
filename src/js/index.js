@@ -285,16 +285,35 @@ function showSuccess(input) {
   messageDisplay.innerText = "";
 }
 
-const isFormValue = (el) => el.value.trim();
+const isFormValue = (el) => !!el.value.trim();
 
 function checkRequiredInput(input) {
-  let result = false;
   if (!isFormValue(input)) {
-    return showError(input, "required field must not be empty");
+    showError(input, "required field must not be empty");
+    return false;
   }
   showSuccess(input);
-  result = true;
-  return result;
+  return true;
+}
+
+function addFormInputListener(input, func) {
+  const result = input;
+  if (!result.id) {
+    return;
+  }
+
+  result.addEventListener(
+    "input",
+    debounce(() => {
+      func(input);
+    }, 500)
+  );
+
+  /*
+  // To do: add aria indicator of focus change?
+  */
+
+  result.focus();
 }
 
 function validateInputById(el) {
@@ -306,28 +325,11 @@ function validateInputById(el) {
     default:
       if (!checkRequiredInput(el)) {
         result = false;
+        addFormInputListener(el, checkRequiredInput);
       }
       break;
   }
   return result;
-}
-
-function addFormInputListener(input) {
-  const result = input;
-  // const inputId = result.id;
-  if (!result.id) {
-    return;
-  }
-  result.addEventListener(
-    "input",
-    debounce((inputId) => {
-      switch (inputId) {
-        default:
-          checkRequiredInput(input);
-      }
-    }, 500)(result.id)
-  );
-  result.scrollIntoView();
 }
 
 function validateFormFields(event) {
@@ -340,7 +342,6 @@ function validateFormFields(event) {
     }
     if (!validateInputById(el)) {
       result = false;
-      addFormInputListener(el);
     }
   });
   // const submittedFirstName = document.querySelector("#submitted-first-name");
@@ -383,7 +384,13 @@ const handleSubmit = (event) => {
     .then(() => {
       window.location.href = redirectUrl;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      /*
+      Not sure if this works, must test. It doesn't catch fetch error 405...
+      */
+      // console.log("error caught:", error);
+      document.querySelector(".form-error").innerText = error;
+    });
 };
 
 const submitAll = document.querySelector("#form-container");
