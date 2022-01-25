@@ -2,7 +2,7 @@
 
 ---
 
-<div align="center" margin="10rem">
+<div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
 </div>
 
