@@ -1,7 +1,5 @@
 # Business website for JZ Carpentry
 
----
-
 <div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
 </div>
@@ -17,8 +15,6 @@
 
 ## Tools used
 
----
-
 - prototyped with Figma: [JZ Carpentry Prototype](https://www.figma.com/file/ETWAvlJzF8x60tOen8LSKq/JZ-carpentry?node-id=496%3A170)
 
 - I used feature branches and Pull Requests for build stability: [Link to example PR]
@@ -32,14 +28,10 @@
 
 ## How to navigate this project
 
----
-
 - Simple project structure: src deploys to build to netlify build.
 - images currently hosted on Github in src folder with plans to move either to AWS, Netlify or other third party hosting sight.
 
 ## Why I built the project this way
-
----
 
 - wicg-inert was the first package installed through NPM. It provides a clean way to disallow page element focus when elements such as the nave menu or gallery are in use.
 
@@ -56,8 +48,6 @@
 
 ## If I had more time I would change this
 
----
-
 - Set up continuous integration to run the tests and ESLint on every Pull Request
 - Refactor some of the code. Especially this part [link to code on GitHub]
 - Add backend support for client handling of gallery images including add and delete actions.
@@ -65,8 +55,6 @@
 - Some work was done building this system through Serverless deployment of AWS signed post uploads and SES notifications but I chose to put this on hold due to the client not strictly requiring file uploads.
 
 ## Available Scripts
-
----
 
 To serve local builds run:
 
