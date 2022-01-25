@@ -20,6 +20,8 @@ const scrollDown = "scroll-down";
 const scrollUp = "scroll-up";
 let lastScroll = 0;
 
+let abortController = new AbortController();
+
 /* 
   //////////////////////////////////////////
   ///////scrolling background setup/////////
@@ -70,15 +72,18 @@ function removeInertStyle() {
 //   pageHeader.classList.add("fade-in");
 // }
 
-/*
-  Timer for window onresize event listener so it doesn't continuesly fire during resize events
-  Source: Jonas Wilms, https://stackoverflow.com/questions/45905160/javascript-on-window-resize-end
-*/
-function debounce(func, delay = 100) {
-  let timer;
-  return (event) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(func, delay, event);
+function debounce(func, delay = 500) {
+  let timeoutId;
+  let context = this;
+  return (...args) => {
+    // cancel the previous timer
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    // setup a new timer
+    timeoutId = setTimeout(() => {
+      func.apply(context, ...args);
+    }, delay);
   };
 }
 
@@ -269,8 +274,6 @@ function showError(input, message) {
   formField.classList.remove("success");
   formField.classList.add("error");
   messageDisplay.innerText = message;
-  // eslint-disable-next-line no-use-before-define
-  // addFormInputListener(input);
 }
 
 function showSuccess(input) {
@@ -301,23 +304,22 @@ function addFormInputListener(input, func) {
   if (!result.id) {
     return;
   }
+  const debouncedInput = debounce(() => {
+    func(input);
+  }, 500);
 
-  result.addEventListener(
-    "input",
-    debounce(() => {
-      func(input);
-    }, 500)
-  );
+  result.addEventListener("input", debouncedInput, {
+    signal: abortController.signal,
+  });
 
   /*
   // To do: add aria indicator of focus change?
   */
-
-  result.focus();
 }
 
 function validateInputById(el) {
   let result = true;
+
   switch (el.id) {
     case "test":
       break;
@@ -325,8 +327,8 @@ function validateInputById(el) {
     default:
       if (!checkRequiredInput(el)) {
         result = false;
-        addFormInputListener(el, checkRequiredInput);
       }
+      addFormInputListener(el, checkRequiredInput);
       break;
   }
   return result;
@@ -340,7 +342,8 @@ function validateFormFields(event) {
     if (!el.required) {
       return;
     }
-    if (!validateInputById(el)) {
+    const validatedField = validateInputById(el);
+    if (!validatedField) {
       result = false;
     }
   });
@@ -357,17 +360,21 @@ function validateFormFields(event) {
   return result;
 }
 
-const handleSubmit = (event) => {
+function handleSubmit(event) {
   event.preventDefault();
-  // console.log(Object.getOwnPropertyNames(event.currentTarget.elements));
+
+  // Cleanup listeners from prior submit attempts
+  abortController.abort();
+  abortController = new AbortController();
+  let myForm = document.getElementById("form-container");
 
   const isValidForm = validateFormFields(event);
-  // console.log(isValidForm);
   if (isValidForm === false) {
+    const firstInputError = myForm.querySelector(".error input");
+    firstInputError.focus();
     return;
   }
 
-  let myForm = document.getElementById("form-container");
   let formData = new FormData(myForm);
   const submittedEmail = formData.get("submitted-email");
   const formSubject = submittedEmail
@@ -391,15 +398,11 @@ const handleSubmit = (event) => {
       // console.log("error caught:", error);
       document.querySelector(".form-error").innerText = error;
     });
-};
+}
 
 const submitAll = document.querySelector("#form-container");
-// let areFormErrors;
-
-// console.log(areFormErrors);
 
 if (submitAll) {
   submitAll.setAttribute("novalidate", "");
   submitAll.addEventListener("submit", handleSubmit);
-  // areFormErrors = submitAll.getElementsByClassName("error")[0];
 }
