@@ -981,15 +981,16 @@ a:hover {
 
 .label-group .form-message,
 .form-error {
-  display: none;
+  display: block;
   color: var(--c-medium);
   font-style: italic;
   margin-top: calc(-1.5 * var(--spacer));
   margin-bottom: var(--spacer);
+  height: var(--spacer);
 }
 
 .label-group.error .form-message {
-  display: block;
+  /* display: block; */
   color: var(--c-error);
 }
 
@@ -997,7 +998,7 @@ a:hover {
   border-color: var(--c-error);
 }
 .label-group.success .form-input {
-  display: block;
+  /* display: block; */
   border-color: var(--c-success);
 }
 
@@ -1036,9 +1037,7 @@ a:hover {
   color: var(--c-white);
 } */
 
-#drop-area {
-  /* display: grid;
-    place-items: center; */
+/* #drop-area {
   background-color: var(--c-white);
   color: var(--c-dark);
   min-height: 10em;
@@ -1047,20 +1046,20 @@ a:hover {
 
 #drop-area.highlight {
   border-color: var(--c-dark-accent);
-}
+} */
 
 #submitted-files {
   display: none;
 }
 
-.dropzone-previews {
+/* .dropzone-previews {
   padding-top: var(--spacer-large) !important;
   background-color: var(--c-white) !important;
 }
 
 .dropzone .dz-preview.dz-image-preview {
   background-color: var(--c-white) !important;
-}
+} */
 
 /* .dz-preview button {
     position: absolute;
