@@ -1,6 +1,7 @@
 import "wicg-inert";
 import lozad from "lozad";
 import BigPicture from "bigpicture";
+import * as EmailValidator from "email-validator";
 
 document.body.classList.add("js");
 
@@ -288,15 +289,25 @@ function showSuccess(input) {
   messageDisplay.innerText = "";
 }
 
-const isFormValue = (el) => !!el.value.trim();
+const isFormValue = (input) => !!input.value.trim();
 
-function checkRequiredInput(input) {
+function isRequiredInput(input) {
   if (!isFormValue(input)) {
-    showError(input, "required field must not be empty");
+    showError(input, "Required field must not be empty");
     return false;
   }
   showSuccess(input);
   return true;
+}
+
+function isValidEmail(input) {
+  const isEmail = EmailValidator.validate(input.value);
+  if (!isEmail) {
+    showError(input, "Please enter a valid email");
+    return isEmail;
+  }
+  showSuccess(input);
+  return isEmail;
 }
 
 function addFormInputListener(input, func) {
@@ -304,11 +315,11 @@ function addFormInputListener(input, func) {
   if (!result.id) {
     return;
   }
-  const debouncedInput = debounce(() => {
+  const debouncedFunc = debounce(() => {
     func(input);
   }, 500);
 
-  result.addEventListener("input", debouncedInput, {
+  result.addEventListener("input", debouncedFunc, {
     signal: abortController.signal,
   });
 
@@ -317,32 +328,42 @@ function addFormInputListener(input, func) {
   */
 }
 
-function validateInputById(el) {
+function isValidInputValue(input) {
   let result = true;
 
-  switch (el.id) {
-    case "test":
+  switch (input.id) {
+    case "submitted-email":
+      if (!isValidEmail(input)) {
+        addFormInputListener(input, isValidEmail);
+        result = false;
+      } else if (!isRequiredInput(input)) {
+        addFormInputListener(input, isRequiredInput);
+        result = false;
+      }
       break;
 
     default:
-      if (!checkRequiredInput(el)) {
+      if (!isRequiredInput(input)) {
+        addFormInputListener(input, isRequiredInput);
         result = false;
       }
-      addFormInputListener(el, checkRequiredInput);
       break;
+  }
+  if (result) {
+    showSuccess(input);
   }
   return result;
 }
 
 function validateFormFields(event) {
   let result = true;
-  const formElements = [...event.currentTarget.elements];
+  const formInputs = [...event.currentTarget.elements];
 
-  formElements.forEach((el) => {
-    if (!el.required) {
+  formInputs.forEach((input) => {
+    if (!input.required) {
       return;
     }
-    const validatedField = validateInputById(el);
+    const validatedField = isValidInputValue(input);
     if (!validatedField) {
       result = false;
     }
