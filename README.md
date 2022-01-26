@@ -1,10 +1,10 @@
-# Business website for JZ Carpentry
+# Website for Vermont based JZ Carpentry
 
 <div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
 </div>
 
-- to be deployed at [jzcarpentryvt.com](https://jzcarpentryvt.com)
+- will be deployed at [jzcarpentryvt.com](https://jzcarpentryvt.com)
 
 ## Project goal
 
