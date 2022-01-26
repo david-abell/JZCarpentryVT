@@ -1,4 +1,4 @@
-# Website for Vermont based JZ Carpentry
+# Website for Vermont based company JZ Carpentry
 
 <div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
