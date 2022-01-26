@@ -10,7 +10,7 @@
   "author": "David Abell",
   "license": "ISC",
   "dependencies": {
-    "bigpicture": "^2.5.3",
+    "bigpicture": "^2.6.1",
     "email-validator": "^2.0.4",
     "lozad": "^1.16.0",
     "wicg-inert": "^3.1.1"
