@@ -2,7 +2,9 @@
 /**************variables and resets*************/
 /***********************************************/
 
-:root {
+:root,
+::before,
+::after {
   /* *********************** */
   /* Color scheme variables */
   /* *********************** */
@@ -621,9 +623,8 @@ a:hover {
 .scrolling-bg {
   --bg-min-height: calc(938 / 3);
   min-height: var(--bg-min-height);
-  max-height: 62.5rem;
+  /* max-height: 80rem; */
   justify-content: center;
-  /* padding: 21rem 0; */
 }
 
 .scrolling-bg::before {
@@ -634,7 +635,6 @@ a:hover {
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
     bottom 30% left 0 / cover no-repeat
       url(../images/banners/20210405_170207.webp);
-  /* background-size: auto 100%; */
   background-attachment: fixed;
 }
 
@@ -785,9 +785,9 @@ a:hover {
     flex-wrap: wrap;
   }
 
-  .scrolling-bg {
+  /* .scrolling-bg {
     min-height: 140vh;
-  }
+  } */
 }
 
 @media (max-width: 990px) {
@@ -850,6 +850,11 @@ a:hover {
     justify-content: space-evenly;
     gap: 0;
     height: 100%;
+  }
+
+  .scrolling-bg {
+    max-height: 80rem;
+    justify-content: center;
   }
 
   .cardless {
@@ -1158,16 +1163,26 @@ a:hover {
 }
 
 .footer-wrapper {
-  padding: var(--spacer-xlarge);
+  padding: var(--spacer-large);
   background-color: var(--c-dark);
   color: var(--c-white);
-  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacer-large);
+  margin-block-end: var(--spacer-large);
+  max-width: var(--spacer-max-width);
 }
 
 .footer-title {
-  margin-bottom: var(--spacer-xlarge);
+  /* margin-block-end: var(--spacer-large); */
   font-family: var(--ff-sans);
   color: var(--c-white);
   font-size: var(--fs-small);
@@ -1176,13 +1191,30 @@ a:hover {
 .footer-list,
 .footer-item {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   list-style: none;
-  max-width: var(--spacer-max-width);
+  gap: var(--spacer-medium);
+  position: relative;
+}
+
+/* .footer-list {
+  margin-block-end: var(--spacer-large);
+} */
+
+.footer-item:not(:last-child) ::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--c-white);
+  position: absolute;
+  bottom: calc(-1 * var(--spacer));
+  left: 0;
   width: 100%;
-  margin: 0 auto var(--spacer);
-  font-size: var(--fs-p);
+  /* max-width: 100vw; */
+  overflow: hidden;
+  /* transform: translatex(50%); */
 }
 
 .icon {
@@ -1198,11 +1230,13 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--spacer-large);
+  font-size: var(--fs-xsmall);
 }
 
-.credit > * + * {
+/* .credit > * + * {
   padding-left: var(--spacer-large);
-}
+} */
 
 .icon {
   padding-right: var(--spacer);
@@ -1213,36 +1247,37 @@ a:hover {
     padding: var(--spacer-large) 0em;
   }
 
-  .footer-title {
+  /* .footer-title {
     margin-bottom: var(--spacer-large);
+  } */
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--spacer-medium);
   }
 
-  .footer-list {
-    display: inline-block;
+  .credit {
+    flex-direction: column;
+    gap: var(--spacer);
   }
+  /* .footer-list {
+    gap: var(--spacer);
+  } */
 
-  .footer-item {
+  /* .footer-item {
     position: relative;
     margin-bottom: 2px;
-    /* flex-direction: column; */
-  }
+    flex-direction: column;
+  } */
 
-  .footer-link {
+  /* .footer-link {
     display: inline-block;
     padding: var(--spacer) 0;
     width: 100%;
-  }
+  } */
 
   .footer-item:not(:last-child):after {
-    content: "";
-    display: block;
-    height: 1px;
-    background: var(--c-white);
-    position: absolute;
-    bottom: 0;
-    left: center;
-    width: 21rem;
-    max-width: 100vw;
+    bottom: calc(-0.5 * var(--spacer));
   }
 }
 
@@ -1260,6 +1295,7 @@ a:hover {
   transition: transform 400ms ease;
   z-index: 100;
 }
+
 .floating-list {
   list-style: none;
   padding: var(--spacer) 0;
