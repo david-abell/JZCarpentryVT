@@ -33,19 +33,18 @@ function setFixedScrollingHeights() {
   if (!scrollingBackground) {
     return;
   }
-  const scrollingContainer = document
-    .querySelector("#scrolling-container")
-    .getBoundingClientRect();
+  const scrollingContainer = document.querySelector("#scrolling-container");
   const scrollingChildHeight = document
     .querySelector("#scrolling-container")
     .children[1].getBoundingClientRect().height;
-  const scrollingContainerHeight = scrollingContainer.height;
-  const scrollingContainerWidth = scrollingContainer.width;
-  const calcScrollingHeight =
-    scrollingContainerWidth > scrollingContainerHeight
-      ? window.innerHeight
-      : scrollingContainerHeight + scrollingChildHeight;
-  scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
+  const scrollingHeight = scrollingContainer.getBoundingClientRect().height;
+  const scrollingWidth = scrollingBackground.getBoundingClientRect().width;
+  const calcNewHeight =
+    scrollingWidth < 1300
+      ? scrollingHeight + scrollingChildHeight
+      : Math.min(window.innerHeight, 1024) + scrollingChildHeight;
+  scrollingBackground.style.height = calcNewHeight.toString() + "px";
+  // scrollingBackground.style.maxHeight = calcNewHeight.toString() + "px";
 }
 
 /* 
