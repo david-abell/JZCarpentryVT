@@ -22,7 +22,7 @@
 - wicg-inert for out of focus content.
 - bigPicture for a simple, mobile friendly picture gallery.
 - lozad for lazy image loading.
-- eslint and prettier for code formatting.
+- eslint, stylelint and prettier for code formatting.
 - parcel for bundling and build deployment
 - deployments through netlify actions (https://happy-albattani-62afb4.netlify.app/).
 
