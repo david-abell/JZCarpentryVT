@@ -2,9 +2,7 @@
    *************variables and resets************
    ********************************************* */
 
-:root,
-*::before,
-*::after {
+:root {
   /* *********************** 
      Color scheme variables 
      *********************** */
@@ -12,7 +10,7 @@
   --c-dark: #334733;
   --c-medium: #446f44;
   --c-light: #e8eee6;
-  --c-light-trans: rgba(232 238 230 85%);
+  --c-light-trans: rgba(232 238 230 / 85%);
   --c-white: #f0f2f0;
   --c-dark-accent: #a54e15;
   --c-light-accent: #fb6d0e;
@@ -71,6 +69,17 @@ a {
   display: block;
   font-family: var(--ff-sans);
 }
+
+/* @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} */
 
 /***********************************************
  ****************general styling****************
@@ -408,8 +417,15 @@ a:hover {
   justify-content: center;
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
     top 0% left 10% / cover no-repeat
-      "url(../images/banners/20201022_111032_cropped.webp)";
+      url("../images/banners/20201022_111032_cropped.webp");
 }
+
+/* .hero {
+  background: linear-gradient(var(--c-transparent), var(--c-transparent)),
+    top 0% left 10% / cover no-repeat
+      url(../images/banners/20201022_111032_cropped.webp);
+
+} */
 
 .hero-content {
   display: flex;
@@ -618,6 +634,7 @@ a:hover {
 .main-content > .scrolling-bg {
   width: 100%;
   max-width: 100%;
+  position: relative;
 }
 
 .scrolling-bg::before {
@@ -627,7 +644,7 @@ a:hover {
   width: 100%;
   background: linear-gradient(var(--c-transparent), var(--c-transparent)),
     bottom 30% left 0 / cover no-repeat
-      "url(../images/banners/20210405_170207.webp)";
+      url("../images/banners/20210405_170207.webp");
   background-attachment: fixed;
 }
 
