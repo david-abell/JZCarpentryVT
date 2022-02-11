@@ -565,7 +565,7 @@ a:hover {
   text-align: left;
   color: var(--c-white);
   min-height: 25rem;
-  max-width: 21rem;
+  width: 21rem;
   position: relative;
 }
 
@@ -1073,6 +1073,68 @@ a:hover {
   .grid-span {
     text-align: left;
   }
+}
+
+/* ********************************************* 
+   *************Submit page syling************** 
+   ********************************************* */
+
+.submit-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.submit-body {
+  font-family: var(--ff-sans);
+  background: var(--c-dark);
+  color: var(--c-white);
+  overflow: hidden;
+}
+
+.submit-header {
+  font-size: var(--fs-small);
+}
+
+.submit-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  max-width: 21rem;
+  padding: var(--spacer-medium);
+  background: var(--c-white);
+  color: var(--c-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  gap: var(--spacer);
+}
+
+#back-link {
+  margin: 0;
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  color: var(--c-medium);
+}
+
+#back-link svg {
+  position: relative;
+  top: 2px;
+}
+
+#back-link:hover,
+#back-link:focus {
+  text-decoration: underline;
+  text-underline-offset: 0.125rem;
+  text-decoration-color: var(--c-light-accent);
+}
+
+#back-link:hover svg path {
+  fill: var(--c-medium);
 }
 
 /***********************************************
