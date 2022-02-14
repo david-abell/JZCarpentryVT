@@ -1,6 +1,7 @@
 import "wicg-inert";
 import lozad from "lozad";
-import BigPicture from "bigpicture";
+// import BigPicture from "bigpicture";
+import GLightbox from "glightbox";
 import * as EmailValidator from "email-validator";
 
 document.body.classList.add("js");
@@ -230,30 +231,35 @@ window.addEventListener("load", () => {
   ///////////////////////////////////////////
 */
 
-(function addBigPictureListeners() {
-  const imageLinks = document.querySelectorAll(".gallery .gallery-item");
-  imageLinks.forEach((el) => {
-    el.addEventListener("click", (event) => {
-      event.preventDefault();
-      BigPicture({
-        el: event.target,
-        gallery: ".gallery",
-        animationStart: () => {
-          // executed immediately before open animation starts
-          document.documentElement.style.overflowY = "hidden";
-          document.body.style.overflowY = "scroll";
-          addInertStyle();
-        },
-        onClose: () => {
-          // executed immediately after close animation finishes
-          document.documentElement.style.overflowY = "auto";
-          document.body.style.overflowY = "auto";
-          removeInertStyle();
-        },
-      });
-    });
-  });
-})();
+// eslint-disable-next-line no-unused-vars
+const lightbox = GLightbox({
+  touchNavigation: true,
+});
+
+// (function addBigPictureListeners() {
+//   const imageLinks = document.querySelectorAll(".gallery .gallery-item");
+//   imageLinks.forEach((el) => {
+//     el.addEventListener("click", (event) => {
+//       event.preventDefault();
+//       BigPicture({
+//         el: event.target,
+//         gallery: ".gallery",
+//         animationStart: () => {
+//           // executed immediately before open animation starts
+//           document.documentElement.style.overflowY = "hidden";
+//           document.body.style.overflowY = "scroll";
+//           addInertStyle();
+//         },
+//         onClose: () => {
+//           // executed immediately after close animation finishes
+//           document.documentElement.style.overflowY = "auto";
+//           document.body.style.overflowY = "auto";
+//           removeInertStyle();
+//         },
+//       });
+//     });
+//   });
+// })();
 
 /*
   ////////////////////////////////////////////
