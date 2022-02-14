@@ -253,6 +253,11 @@ a:hover {
   margin: var(--spacer-medium) 0;
 }
 
+.company-logo > img {
+  width: 198px;
+  height: 34px;
+}
+
 .nav-menu {
   grid-column: 3/4;
   display: flex;
@@ -667,7 +672,7 @@ a:hover {
 
 .cardless {
   position: relative;
-  background: var(--c-light-trans);
+  background: var(--c-light);
   color: var(--c-dark);
   box-shadow: none;
   justify-content: center;
