@@ -391,7 +391,9 @@ function handleSubmit(event) {
   const isValidForm = validateFormFields(event);
   if (isValidForm === false) {
     const firstInputError = myForm.querySelector(".error input");
+    firstInputError.style.scrollMarginTop = "16rem";
     firstInputError.focus();
+    firstInputError.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
 
