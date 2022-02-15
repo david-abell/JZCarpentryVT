@@ -10,6 +10,7 @@
   "author": "David Abell",
   "license": "ISC",
   "dependencies": {
+    "bigpicture": "^2.6.1",
     "email-validator": "^2.0.4",
     "glightbox": "^3.1.0",
     "lozad": "^1.16.0",
