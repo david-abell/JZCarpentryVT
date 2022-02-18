@@ -49,10 +49,9 @@
 ## If I had more time I would change this
 
 - Set up continuous integration to run the tests and ESLint on every Pull Request
-- Refactor some of the code. Especially this part [link to code on GitHub]
+- Refactor some of the code.
 - Add backend support for client handling of gallery images including add and delete actions.
 - Support file uploads for the contact page while minimizing client costs. netlify costs $19 per month for this form feature and the cost does not currently justify client needs.
-- Some work was done building this system through Serverless deployment of AWS signed post uploads and SES notifications but I chose to put this on hold due to the client not strictly requiring file uploads.
 
 ## Available Scripts
 
