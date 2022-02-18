@@ -1,4 +1,4 @@
-# Website for Vermont based company JZ Carpentry
+# Website for JZ Carpentry
 
 <div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
@@ -11,7 +11,6 @@
 - To replace a poorly designed wordpress site.
 - Clean, mobile friendly design to drive business engagement.
 - Accessibility for A11y friendly design including use of screen reader.
-- limit use of frameworks and modules to master core HTML, CSS, and JS skills.
 
 ## Tools used
 
@@ -22,7 +21,7 @@
 - wicg-inert for out of focus content.
 - bigPicture for a simple, mobile friendly picture gallery.
 - lozad for lazy image loading.
-- eslint, stylelint and prettier for code formatting.
+- eslint and prettier for code formatting.
 - parcel for bundling and build deployment
 - deployments through netlify actions (https://happy-albattani-62afb4.netlify.app/).
 
@@ -49,10 +48,9 @@
 ## If I had more time I would change this
 
 - Set up continuous integration to run the tests and ESLint on every Pull Request
-- Refactor some of the code. Especially this part [link to code on GitHub]
+- Refactor some of the code.
 - Add backend support for client handling of gallery images including add and delete actions.
 - Support file uploads for the contact page while minimizing client costs. netlify costs $19 per month for this form feature and the cost does not currently justify client needs.
-- Some work was done building this system through Serverless deployment of AWS signed post uploads and SES notifications but I chose to put this on hold due to the client not strictly requiring file uploads.
 
 ## Available Scripts
 
