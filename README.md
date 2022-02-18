@@ -1,4 +1,4 @@
-# Website for Vermont based company JZ Carpentry
+# Website for JZ Carpentry
 
 <div align="left" margin="10rem">
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
@@ -11,7 +11,6 @@
 - To replace a poorly designed wordpress site.
 - Clean, mobile friendly design to drive business engagement.
 - Accessibility for A11y friendly design including use of screen reader.
-- limit use of frameworks and modules to master core HTML, CSS, and JS skills.
 
 ## Tools used
 
