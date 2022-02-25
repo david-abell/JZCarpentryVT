@@ -940,22 +940,31 @@ a:hover {
   gap: var(--spacer);
   flex-direction: column;
   width: 100%;
+  height: 100%;
 }
 
 .form-group {
   display: grid;
   column-gap: var(--spacer-large);
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
   width: 100%;
+  height: 100%;
+}
+
+.icon-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .grid-span {
   text-align: center;
 }
 
-.grid-right {
+/* .grid-right {
   margin-bottom: var(--spacer);
-}
+} */
 
 .form-input {
   font-size: var(--fs-p);
@@ -967,6 +976,8 @@ a:hover {
   padding: var(--spacer);
   background-color: var(--c-white);
   color: var(--c-medium);
+  width: 100%;
+  height: 100%;
 }
 
 .label-group .card-caption {
@@ -985,7 +996,8 @@ a:hover {
   display: block;
   color: var(--c-medium);
   font-style: italic;
-  margin-top: calc(var(--spacer) * -1.5);
+
+  /* margin-top: calc(var(--spacer) * -1.5); */
   margin-bottom: var(--spacer);
   height: var(--spacer);
 }
@@ -1008,6 +1020,36 @@ a:hover {
 
 .label-group.success .form-input:focus {
   outline: 3px solid var(--c-success);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.3rem;
+  transform: translateY(-50%);
+}
+
+.icon-error {
+  color: var(--c-error);
+  display: none;
+}
+
+.icon-success {
+  color: var(--c-success);
+  display: none;
+}
+
+.label-group.success .icon-success {
+  display: block;
+}
+
+.label-group.error .icon-error {
+  display: block;
+}
+
+.icon-group svg {
+  height: calc(var(--fs-p) + var(--fs-small));
+  width: calc(var(--fs-p) + var(--fs-small));
 }
 
 .textarea {

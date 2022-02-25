@@ -20,6 +20,10 @@
       src="/node_modules/wicg-inert/dist/inert.min.js"
     ></script>
     <script type="module" src="./js/index.js"></script>
+    <script
+      type="module"
+      src="https://code.iconify.design/2/2.1.2/iconify.min.js"
+    ></script>
 
     <link
       rel="stylesheet"
@@ -98,13 +102,24 @@
                     <label class="grid-left" for="submitted-first-name"
                       >First name
                     </label>
-                    <input
-                      class="grid-right form-input"
-                      type="text"
-                      name="submitted-first-name"
-                      id="submitted-first-name"
-                      required
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="text"
+                        name="submitted-first-name"
+                        id="submitted-first-name"
+                        required
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
+
                     <div class="form-message"></div>
                   </div>
                   <div class="label-group">

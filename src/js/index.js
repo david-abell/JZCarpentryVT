@@ -268,10 +268,10 @@ const lightbox = GLightbox({
 */
 
 function showError(input, message) {
-  const formField = input.parentElement;
-  if (!formField.classList.contains("label-group")) {
-    return;
-  }
+  const formField = input.closest(".label-group");
+  // if (!formField.classList.contains("label-group")) {
+  //   return;
+  // }
   const messageDisplay = formField.querySelector(".form-message");
   if (!messageDisplay) {
     return;
@@ -283,7 +283,7 @@ function showError(input, message) {
 }
 
 function showSuccess(input) {
-  const formField = input.parentElement;
+  const formField = input.closest(".label-group");
   const messageDisplay = formField.querySelector(".form-message");
   if (!messageDisplay) {
     return;
