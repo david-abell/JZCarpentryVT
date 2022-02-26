@@ -940,31 +940,24 @@ a:hover {
   gap: var(--spacer);
   flex-direction: column;
   width: 100%;
-  height: 100%;
 }
 
 .form-group {
   display: grid;
-  column-gap: var(--spacer-large);
+  gap: var(--spacer-large);
   grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
   width: 100%;
-  height: 100%;
 }
 
 .icon-group {
   position: relative;
   display: flex;
   width: 100%;
-  height: 100%;
 }
 
 .grid-span {
   text-align: center;
 }
-
-/* .grid-right {
-  margin-bottom: var(--spacer);
-} */
 
 .form-input {
   font-size: var(--fs-p);
@@ -977,7 +970,6 @@ a:hover {
   background-color: var(--c-white);
   color: var(--c-medium);
   width: 100%;
-  height: 100%;
 }
 
 .label-group .card-caption {
@@ -996,10 +988,7 @@ a:hover {
   display: block;
   color: var(--c-medium);
   font-style: italic;
-
-  /* margin-top: calc(var(--spacer) * -1.5); */
-  margin-bottom: var(--spacer);
-  height: var(--spacer);
+  height: var(--spacer-medium);
 }
 
 .label-group.error .form-message {
@@ -1048,8 +1037,8 @@ a:hover {
 }
 
 .icon-group svg {
-  height: calc(var(--fs-p) + var(--fs-small));
-  width: calc(var(--fs-p) + var(--fs-small));
+  height: calc(var(--fs-p) + var(--fs-p));
+  width: calc(var(--fs-p) + var(--fs-p));
 }
 
 .textarea {
