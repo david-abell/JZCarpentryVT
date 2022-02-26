@@ -294,10 +294,10 @@ function showSuccess(input) {
   messageDisplay.innerText = "";
 }
 
-const isFormValue = (input) => !!input.value.trim();
+const isThereAValue = (input) => !!input.value.trim();
 
 function isRequiredInput(input) {
-  if (!isFormValue(input)) {
+  if (!isThereAValue(input)) {
     showError(input, "Required field must not be empty");
     return false;
   }
@@ -338,18 +338,15 @@ function isValidInputValue(input) {
 
   switch (input.id) {
     case "submitted-email":
+      addFormInputListener(input, isValidEmail);
       if (!isValidEmail(input)) {
-        addFormInputListener(input, isValidEmail);
-        result = false;
-      } else if (!isRequiredInput(input)) {
-        addFormInputListener(input, isRequiredInput);
         result = false;
       }
       break;
 
     default:
+      addFormInputListener(input, isRequiredInput);
       if (!isRequiredInput(input)) {
-        addFormInputListener(input, isRequiredInput);
         result = false;
       }
       break;
