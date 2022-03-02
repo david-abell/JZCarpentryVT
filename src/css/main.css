@@ -75,7 +75,7 @@ a {
   font-family: var(--ff-sans);
 }
 
-/* @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -84,7 +84,7 @@ a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-} */
+}
 
 /***********************************************
  ****************general styling****************
