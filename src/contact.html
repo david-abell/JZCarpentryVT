@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="JZ Carpentry: contact form." />
     <title>JZ Carpentry</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css?family=Neuton%7CWork+Sans%7COpen+Sans"
+      href="https://fonts.googleapis.com/css?family=Neuton%7CWork+Sans%7COpen+Sans&display=swap"
       rel="stylesheet"
     />
     <script
@@ -19,6 +20,10 @@
       src="/node_modules/wicg-inert/dist/inert.min.js"
     ></script>
     <script type="module" src="./js/index.js"></script>
+    <script
+      type="module"
+      src="https://code.iconify.design/2/2.1.2/iconify.min.js"
+    ></script>
 
     <link
       rel="stylesheet"
@@ -51,7 +56,7 @@
             <a class="nav-link" href="./portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact-form">Contact</a>
+            <a class="nav-link" href="#main-content">Contact</a>
           </li>
         </ul>
       </nav>
@@ -62,11 +67,11 @@
           <h1 class="hero-title">Making your space beautiful and functional</h1>
         </div>
       </div>
-      <div class="main-content">
+      <div class="main-content" id="main-content">
         <article class="article-wrapper" id="contact-form">
           <hgroup class="title-group">
-            <h2 class="section-title">Contact us today!</h2>
-            <h3 class="section-subtitle">great service at a fair price</h3>
+            <h2 class="section-title">Email us today!</h2>
+            <!-- <h3 class="section-subtitle">great service at a fair price</h3> -->
           </hgroup>
           <div class="card-wrapper">
             <section class="card card-contact flow">
@@ -97,50 +102,90 @@
                     <label class="grid-left" for="submitted-first-name"
                       >First name
                     </label>
-                    <input
-                      class="grid-right form-input"
-                      type="text"
-                      name="submitted-first-name"
-                      id="submitted-first-name"
-                      required
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="text"
+                        name="submitted-first-name"
+                        id="submitted-first-name"
+                        required
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                   <div class="label-group">
                     <label class="grid-left" for="submitted-last-name"
                       >Last name
                     </label>
-                    <input
-                      class="grid-right form-input"
-                      type="text"
-                      name="submitted-last-name"
-                      id="submitted-last-name"
-                      required
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="text"
+                        name="submitted-last-name"
+                        id="submitted-last-name"
+                        required
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="label-group">
                     <label for="submitted-email" class="grid-left">Email</label>
-                    <input
-                      class="grid-right form-input"
-                      type="email"
-                      name="submitted-email"
-                      id="submitted-email"
-                      required
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="email"
+                        name="submitted-email"
+                        id="submitted-email"
+                        required
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                   <div class="label-group">
                     <label for="submitted-phone" class="grid-left">Phone</label>
-                    <input
-                      class="grid-right form-input"
-                      type="tel"
-                      name="submitted-phone"
-                      id="submitted-phone"
-                      required
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="tel"
+                        name="submitted-phone"
+                        id="submitted-phone"
+                        required
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                 </div>
@@ -148,13 +193,23 @@
                   <label for="submitted-address" class="grid-left"
                     >Address
                   </label>
-                  <input
-                    class="grid-right form-input"
-                    type="text"
-                    name="submitted-address"
-                    id="submitted-address"
-                    required
-                  />
+                  <div class="icon-group">
+                    <input
+                      class="grid-right form-input"
+                      type="text"
+                      name="submitted-address"
+                      id="submitted-address"
+                      required
+                    />
+                    <span
+                      class="iconify-inline icon-error form-icon"
+                      data-icon="mi:circle-error"
+                    ></span>
+                    <span
+                      class="iconify-inline icon-success form-icon"
+                      data-icon="mi:circle-check"
+                    ></span>
+                  </div>
                   <div class="form-message"></div>
                 </div>
                 <div class="form-group">
@@ -162,25 +217,45 @@
                     <label for="submitted-timeline" class="grid-left"
                       >Project timeline (optional)
                     </label>
-                    <input
-                      class="grid-right form-input"
-                      type="text"
-                      name="submitted-timeline"
-                      id="submitted-timeline"
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="text"
+                        name="submitted-timeline"
+                        id="submitted-timeline"
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                   <div class="label-group">
                     <label for="submitted-budget" class="grid-left"
                       >Project budget (optional)
                     </label>
-                    <input
-                      class="grid-right form-input"
-                      type="number"
-                      name="submitted-budget"
-                      id="submitted-budget"
-                      min="0"
-                    />
+                    <div class="icon-group">
+                      <input
+                        class="grid-right form-input"
+                        type="number"
+                        name="submitted-budget"
+                        id="submitted-budget"
+                        min="0"
+                      />
+                      <span
+                        class="iconify-inline icon-error form-icon"
+                        data-icon="mi:circle-error"
+                      ></span>
+                      <span
+                        class="iconify-inline icon-success form-icon"
+                        data-icon="mi:circle-check"
+                      ></span>
+                    </div>
                     <div class="form-message"></div>
                   </div>
                 </div>
@@ -201,14 +276,10 @@
                     rows="10"
                   ></textarea>
                 </div>
-                <button
-                  class="grid-span form-input"
-                  type="submit"
-                  id="submit-all"
-                >
+                <div class="form-error"></div>
+                <button class="form-input" type="submit" id="submit-all">
                   Send
                 </button>
-                <div class="form-error"></div>
               </form>
             </section>
           </div>
@@ -217,26 +288,23 @@
     </main>
     <footer class="footer" id="footer">
       <div class="footer-wrapper">
-        <h2 class="footer-title">Get in touch</h2>
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
-              <i class="icon fas fa-map-marker-alt"></i
-              ><span class="screen-reader">Location</span>Burlington VT
-            </a>
-          </li>
-          <li class="footer-item">
-            <a href="tel:802-598-8070" class="footer-link">
-              <i class="icon fas fa-phone-alt"></i
-              ><span class="screen-reader">Phone number</span>802-598-8070
-            </a>
-          </li>
-          <li class="footer-item">
-            <a href="#contact-form" class="footer-link">
-              <i class="icon fas fa-envelope"></i>Email
-            </a>
-          </li>
-        </ul>
+        <div class="footer-content">
+          <h2 class="footer-title">Give us a call</h2>
+          <ul class="footer-list">
+            <!-- <li class="footer-item">
+              <a href="https://goo.gl/maps/xSBBXSUqh4cgz5M79" class="footer-link">
+                <i class="icon fas fa-map-marker-alt"></i
+                ><span class="screen-reader">Location</span>Burlington VT
+              </a>
+            </li> -->
+            <li class="footer-item">
+              <a href="tel:802-598-8070" class="footer-link">
+                <i class="icon fas fa-phone-alt"></i
+                ><span class="screen-reader">Phone number</span>802-598-8070
+              </a>
+            </li>
+          </ul>
+        </div>
         <div class="credit">
           <p>
             <span>&copy;</span

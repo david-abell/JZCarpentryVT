@@ -1,6 +1,7 @@
 import "wicg-inert";
 import lozad from "lozad";
-import BigPicture from "bigpicture";
+// import BigPicture from "bigpicture";
+import GLightbox from "glightbox";
 import * as EmailValidator from "email-validator";
 
 document.body.classList.add("js");
@@ -33,19 +34,18 @@ function setFixedScrollingHeights() {
   if (!scrollingBackground) {
     return;
   }
-  const scrollingContainer = document
-    .querySelector("#scrolling-container")
-    .getBoundingClientRect();
+  const scrollingContainer = document.querySelector("#scrolling-container");
   const scrollingChildHeight = document
     .querySelector("#scrolling-container")
     .children[1].getBoundingClientRect().height;
-  const scrollingContainerHeight = scrollingContainer.height;
-  const scrollingContainerWidth = scrollingContainer.width;
-  const calcScrollingHeight =
-    scrollingContainerWidth > scrollingContainerHeight
-      ? window.innerHeight
-      : scrollingContainerHeight + scrollingChildHeight;
-  scrollingBackground.style.height = calcScrollingHeight.toString() + "px";
+  const scrollingHeight = scrollingContainer.getBoundingClientRect().height;
+  const scrollingWidth = scrollingBackground.getBoundingClientRect().width;
+  const calcNewHeight =
+    scrollingWidth < 1300
+      ? scrollingHeight + scrollingChildHeight
+      : Math.min(window.innerHeight, 1024) + scrollingChildHeight;
+  scrollingBackground.style.height = calcNewHeight.toString() + "px";
+  // scrollingBackground.style.maxHeight = calcNewHeight.toString() + "px";
 }
 
 /* 
@@ -231,30 +231,35 @@ window.addEventListener("load", () => {
   ///////////////////////////////////////////
 */
 
-(function addBigPictureListeners() {
-  const imageLinks = document.querySelectorAll(".gallery .gallery-item");
-  imageLinks.forEach((el) => {
-    el.addEventListener("click", (event) => {
-      event.preventDefault();
-      BigPicture({
-        el: event.target,
-        gallery: ".gallery",
-        animationStart: () => {
-          // executed immediately before open animation starts
-          document.documentElement.style.overflowY = "hidden";
-          document.body.style.overflowY = "scroll";
-          addInertStyle();
-        },
-        onClose: () => {
-          // executed immediately after close animation finishes
-          document.documentElement.style.overflowY = "auto";
-          document.body.style.overflowY = "auto";
-          removeInertStyle();
-        },
-      });
-    });
-  });
-})();
+// eslint-disable-next-line no-unused-vars
+const lightbox = GLightbox({
+  touchNavigation: true,
+});
+
+// (function addBigPictureListeners() {
+//   const imageLinks = document.querySelectorAll(".gallery .gallery-item");
+//   imageLinks.forEach((el) => {
+//     el.addEventListener("click", (event) => {
+//       event.preventDefault();
+//       BigPicture({
+//         el: event.target,
+//         gallery: ".gallery",
+//         animationStart: () => {
+//           // executed immediately before open animation starts
+//           document.documentElement.style.overflowY = "hidden";
+//           document.body.style.overflowY = "scroll";
+//           addInertStyle();
+//         },
+//         onClose: () => {
+//           // executed immediately after close animation finishes
+//           document.documentElement.style.overflowY = "auto";
+//           document.body.style.overflowY = "auto";
+//           removeInertStyle();
+//         },
+//       });
+//     });
+//   });
+// })();
 
 /*
   ////////////////////////////////////////////
@@ -263,10 +268,10 @@ window.addEventListener("load", () => {
 */
 
 function showError(input, message) {
-  const formField = input.parentElement;
-  if (!formField.classList.contains("label-group")) {
-    return;
-  }
+  const formField = input.closest(".label-group");
+  // if (!formField.classList.contains("label-group")) {
+  //   return;
+  // }
   const messageDisplay = formField.querySelector(".form-message");
   if (!messageDisplay) {
     return;
@@ -278,7 +283,7 @@ function showError(input, message) {
 }
 
 function showSuccess(input) {
-  const formField = input.parentElement;
+  const formField = input.closest(".label-group");
   const messageDisplay = formField.querySelector(".form-message");
   if (!messageDisplay) {
     return;
@@ -289,10 +294,10 @@ function showSuccess(input) {
   messageDisplay.innerText = "";
 }
 
-const isFormValue = (input) => !!input.value.trim();
+const isThereAValue = (input) => !!input.value.trim();
 
 function isRequiredInput(input) {
-  if (!isFormValue(input)) {
+  if (!isThereAValue(input)) {
     showError(input, "Required field must not be empty");
     return false;
   }
@@ -333,18 +338,15 @@ function isValidInputValue(input) {
 
   switch (input.id) {
     case "submitted-email":
+      addFormInputListener(input, isValidEmail);
       if (!isValidEmail(input)) {
-        addFormInputListener(input, isValidEmail);
-        result = false;
-      } else if (!isRequiredInput(input)) {
-        addFormInputListener(input, isRequiredInput);
         result = false;
       }
       break;
 
     default:
+      addFormInputListener(input, isRequiredInput);
       if (!isRequiredInput(input)) {
-        addFormInputListener(input, isRequiredInput);
         result = false;
       }
       break;
@@ -392,7 +394,9 @@ function handleSubmit(event) {
   const isValidForm = validateFormFields(event);
   if (isValidForm === false) {
     const firstInputError = myForm.querySelector(".error input");
+    firstInputError.style.scrollMarginTop = "16rem";
     firstInputError.focus();
+    firstInputError.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
 
