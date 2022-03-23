@@ -613,6 +613,14 @@ a:hover {
   margin-bottom: var(--spacer-medium);
 }
 
+.card-text li {
+  font-size: var(--fs-p);
+  font-family: var(--ff-p-sans);
+  line-height: 2.375rem;
+  font-weight: var(--fw-normal);
+  margin-bottom: var(--spacer);
+}
+
 .card-icon {
   position: absolute;
   transform: translateY(-75%);
@@ -944,7 +952,7 @@ a:hover {
 
 .form-group {
   display: grid;
-  gap: var(--spacer-large);
+  gap: var(--spacer-medium);
   grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
   width: 100%;
 }
@@ -1117,6 +1125,15 @@ a:hover {
 
   .grid-span {
     text-align: left;
+  }
+
+  .label-group .form-message,
+  .form-error {
+    height: var(--spacer);
+  }
+
+  .form-group {
+    gap: var(--spacer);
   }
 }
 
