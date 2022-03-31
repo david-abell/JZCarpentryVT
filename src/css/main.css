@@ -621,9 +621,23 @@ a:hover {
   margin-bottom: var(--spacer);
 }
 
-.card-icon {
+.card-icon-container {
   position: absolute;
-  transform: translateY(-75%);
+  top: 0;
+  left: 0;
+  transform: translate(var(--spacer-medium), -50%);
+  border: 0.5rem solid var(--c-medium);
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  overflow: hidden;
+  background-color: var(--c-white);
+}
+
+.card-icon {
+  margin: auto;
+  font-size: 4rem;
+  color: var(--c-medium);
 }
 
 .card-img {
