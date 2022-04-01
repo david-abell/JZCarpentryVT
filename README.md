@@ -4,7 +4,7 @@
 <img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
 </div>
 
-- will be deployed at [jzcarpentryvt.com](https://jzcarpentryvt.com)
+## Deployed at [jzcarpentryvt.com](https://jzcarpentryvt.com)
 
 ## Project goal
 
@@ -16,14 +16,14 @@
 
 - prototyped with Figma: [JZ Carpentry Prototype](https://www.figma.com/file/ETWAvlJzF8x60tOen8LSKq/JZ-carpentry?node-id=496%3A170)
 
-- I used feature branches and Pull Requests for build stability: [Link to example PR]
+- I used feature branches and Pull Requests for build stability: [example PR](https://github.com/david-abell/JZCarpentryVT/pull/15)
 - npm package management.
 - wicg-inert for out of focus content.
 - bigPicture for a simple, mobile friendly picture gallery.
 - lozad for lazy image loading.
 - eslint and prettier for code formatting.
 - parcel for bundling and build deployment
-- deployments through netlify actions (https://happy-albattani-62afb4.netlify.app/).
+- deployments through netlify actions.
 
 ## How to navigate this project
 
@@ -63,5 +63,5 @@ To serve local builds run:
 To build deployment as currently run by Netlify actions run:
 
 ```bash
-    npm run start
+    npm run build
 ```
