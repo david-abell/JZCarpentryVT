@@ -1288,7 +1288,7 @@ a:hover {
 
 .icon {
   font-size: var(--fs-p);
-  padding-right: var(--spacer);
+  margin-right: var(--spacer);
 }
 
 .footer-link {
