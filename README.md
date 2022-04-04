@@ -1,7 +1,7 @@
 # Website for JZ Carpentry
 
 <div align="left" margin="10rem">
-<img src="./readme_prototype.webp" alt="figma design screenshot" height="280">
+<img src="./jzcarpentryvt.jpg" alt="website screenshot" height="280">
 </div>
 
 ## Deployed at [jzcarpentryvt.com](https://jzcarpentryvt.com)
@@ -19,7 +19,7 @@
 - I used feature branches and Pull Requests for build stability: [example PR](https://github.com/david-abell/JZCarpentryVT/pull/15)
 - npm package management.
 - wicg-inert for out of focus content.
-- bigPicture for a simple, mobile friendly picture gallery.
+- glightbox for a simple, mobile friendly picture gallery.
 - lozad for lazy image loading.
 - eslint and prettier for code formatting.
 - parcel for bundling and build deployment
